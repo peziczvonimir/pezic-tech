@@ -84,6 +84,10 @@
 
 .support-section, footer { background: #050505; }
 
+.language-switcher { display:flex; align-items:center; gap:3px; padding:3px; border:1px solid var(--line); border-radius:2px; background:#fff; }
+.language-switcher button { min-width:30px; border:0; background:transparent; color:var(--muted); padding:7px 5px; font:inherit; font-size:9px; font-weight:800; cursor:pointer; }
+.language-switcher button.active { background:var(--blue); color:#000; }
+
 @keyframes suncro-marquee {
   to { transform: translateX(calc(-50% - 45px)); }
 }
@@ -96,4 +100,11 @@
   .brand-banner { padding: 18px 0; }
   .brand-marquee { gap: 50px; }
   .brand-marquee img { width: 620px; }
+}
+
+@media (max-width: 850px) {
+  .primary-nav { z-index:1; width:100vw; height:100dvh; background:#f7f6f2 !important; opacity:1; isolation:isolate; }
+  .primary-nav.open { box-shadow:0 0 0 100vmax #f7f6f2; }
+  .language-switcher { margin:10px 0; }
+  .language-switcher button { min-width:42px; padding:10px 8px; }
 }
