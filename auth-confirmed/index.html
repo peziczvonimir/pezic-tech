@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b0d10">
+  <title>SUNCRO — Potvrda e-maila</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/auth-confirmed.css">
+  <script defer src="../assets/js/auth-confirmed.js"></script>
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="auth-card" aria-live="polite">
+      <div class="language-switcher" aria-label="Jezik">
+        <button type="button" data-lang="hr">HR</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="de">DE</button>
+      </div>
+      <img class="logo" src="../assets/img/suncro-logo-orange.svg" alt="SUNCRO">
+      <div class="status-icon" aria-hidden="true"><span></span></div>
+      <h1 data-copy="title">E-mail je potvrđen</h1>
+      <p class="lead" data-copy="message">Vaš SUNCRO račun je aktiviran. Sada se možete prijaviti u aplikaciju.</p>
+      <a class="app-button" href="suncro://login-callback" data-copy="openApp">Otvori SUNCRO aplikaciju</a>
+      <p class="desktop-note" data-copy="desktopNote">Ako ste potvrdu otvorili na računalu, vratite se na telefon i prijavite u SUNCRO aplikaciju.</p>
+      <div class="error-box" hidden>
+        <strong data-copy="errorTitle">Potvrda nije uspjela</strong>
+        <p data-copy="errorMessage">Poveznica je istekla ili je već iskorištena. Pokušajte se prijaviti ili ponovno zatražite potvrdu.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
