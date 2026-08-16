@@ -1,0 +1,99 @@
+:root {
+  --ink: #0b0b0b;
+  --muted: #666;
+  --line: #dedede;
+  --paper: #f7f6f2;
+  --blue: #ffb000;
+  --cyan: #ffca55;
+  --lime: #ffb000;
+}
+
+.site-header {
+  background: rgba(247, 246, 242, .9);
+  border-bottom-color: rgba(0, 0, 0, .09);
+}
+
+.brand-symbol {
+  display: block;
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.hero {
+  background: linear-gradient(145deg, #fbfaf7 0%, #f1eee6 75%);
+}
+
+.hero-grid {
+  background-image: linear-gradient(rgba(0, 0, 0, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, .045) 1px, transparent 1px);
+}
+
+.orbit { border-color: rgba(255, 176, 0, .3); }
+
+.device {
+  background: linear-gradient(145deg, #222, #050505);
+  box-shadow: 0 50px 70px rgba(0, 0, 0, .32), inset 0 0 0 2px rgba(255, 255, 255, .08);
+}
+
+.device-logo {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 118px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.button-primary { color: #000; }
+.contact-circle { color: #000; }
+.contact-circle b { color: #000; }
+
+.brand-banner {
+  overflow: hidden;
+  background: #000;
+  border-top: 6px solid #ffb000;
+  padding: 26px 0;
+}
+
+.brand-marquee {
+  display: flex;
+  width: max-content;
+  gap: 90px;
+  align-items: center;
+  animation: suncro-marquee 24s linear infinite;
+}
+
+.brand-marquee img {
+  width: min(720px, 72vw);
+  height: auto;
+  flex: none;
+}
+
+.feature-main { background: linear-gradient(145deg, #fff, #fff8e7); }
+
+.about-visual {
+  background: radial-gradient(circle, #171717 0 38%, #050505 39% 52%, transparent 53%), repeating-radial-gradient(circle, rgba(255, 176, 0, .22) 0 1px, transparent 2px 32px);
+}
+
+.about-visual > img {
+  z-index: 1;
+  width: 31%;
+  height: auto;
+  filter: drop-shadow(0 0 28px rgba(255, 176, 0, .25));
+}
+
+.support-section, footer { background: #050505; }
+
+@keyframes suncro-marquee {
+  to { transform: translateX(calc(-50% - 45px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-marquee { animation: none; }
+}
+
+@media (max-width: 560px) {
+  .brand-banner { padding: 18px 0; }
+  .brand-marquee { gap: 50px; }
+  .brand-marquee img { width: 620px; }
+}
