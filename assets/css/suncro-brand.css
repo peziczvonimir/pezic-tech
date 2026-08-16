@@ -46,6 +46,7 @@
 
 .button-primary { color: #000; }
 .contact-circle { color: #000; }
+.contact-circle > span { text-align: center; }
 .contact-circle b { color: #000; }
 
 .brand-banner {
@@ -58,13 +59,21 @@
 .brand-marquee {
   display: flex;
   width: max-content;
-  gap: 90px;
   align-items: center;
-  animation: suncro-marquee 24s linear infinite;
+  animation: suncro-marquee 32s linear infinite;
+  will-change: transform;
 }
 
-.brand-marquee img {
-  width: min(720px, 72vw);
+.brand-marquee-group {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: clamp(48px, 8vw, 110px);
+  padding-right: clamp(48px, 8vw, 110px);
+}
+
+.brand-marquee-group img {
+  width: clamp(380px, 52vw, 720px);
   height: auto;
   flex: none;
 }
@@ -89,7 +98,7 @@
 .language-switcher button.active { background:var(--blue); color:#000; }
 
 @keyframes suncro-marquee {
-  to { transform: translateX(calc(-50% - 45px)); }
+  to { transform: translate3d(-50%, 0, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -98,8 +107,9 @@
 
 @media (max-width: 560px) {
   .brand-banner { padding: 18px 0; }
-  .brand-marquee { gap: 50px; }
-  .brand-marquee img { width: 620px; }
+  .brand-marquee { animation-duration: 26s; }
+  .brand-marquee-group { gap: 42px; padding-right: 42px; }
+  .brand-marquee-group img { width: 440px; }
 }
 
 @media (max-width: 850px) {
@@ -107,4 +117,5 @@
   .primary-nav.open { box-shadow:0 0 0 100vmax #f7f6f2; }
   .language-switcher { margin:10px 0; }
   .language-switcher button { min-width:42px; padding:10px 8px; }
+  .contact-circle b { display:none; }
 }
