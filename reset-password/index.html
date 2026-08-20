@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b0d10">
+  <title>SUNCRO — Nova lozinka</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/auth-confirmed.css">
+  <link rel="stylesheet" href="../assets/css/reset-password.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="../assets/js/reset-password.js"></script>
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="auth-card" aria-live="polite">
+      <div class="language-switcher" aria-label="Jezik">
+        <button type="button" data-lang="hr">HR</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="de">DE</button>
+      </div>
+      <img class="logo" src="../assets/img/suncro-logo-orange.svg" alt="SUNCRO">
+      <div id="loading" class="loading" data-copy="loading">Provjera poveznice…</div>
+      <form id="reset-form" hidden>
+        <h1 data-copy="title">Postavite novu lozinku</h1>
+        <p class="lead" data-copy="message">Nova lozinka mora imati najmanje 6 znakova.</p>
+        <label for="password" data-copy="password">Nova lozinka</label>
+        <input id="password" type="password" minlength="6" autocomplete="new-password" required>
+        <label for="confirm-password" data-copy="confirmPassword">Ponovite novu lozinku</label>
+        <input id="confirm-password" type="password" minlength="6" autocomplete="new-password" required>
+        <button class="app-button" type="submit" data-copy="save">Spremi novu lozinku</button>
+        <p id="form-error" class="form-error" hidden></p>
+      </form>
+      <div id="success" hidden>
+        <div class="status-icon" aria-hidden="true"><span></span></div>
+        <h1 data-copy="successTitle">Lozinka je promijenjena</h1>
+        <p class="lead" data-copy="successMessage">Sada se možete prijaviti novom lozinkom u SUNCRO aplikaciju.</p>
+        <a class="app-button" href="suncro://login-callback" data-copy="openApp">Otvori SUNCRO aplikaciju</a>
+      </div>
+      <div id="link-error" class="error-box" hidden>
+        <strong data-copy="errorTitle">Poveznica nije valjana</strong>
+        <p data-copy="errorMessage">Poveznica je istekla ili je već iskorištena. U aplikaciji ponovno odaberite “Zaboravljena lozinka”.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
