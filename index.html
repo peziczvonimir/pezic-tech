@@ -112,12 +112,62 @@
       <div class="container app-showcase">
         <div class="phone-stage reveal">
           <div class="phone-glow" aria-hidden="true"></div>
-          <div class="phone-frame">
-            <video autoplay muted loop playsinline preload="metadata" poster="assets/media/suncro-live-measurement.png" aria-label="SUNCRO app live monitoring demo">
-              <source src="assets/media/suncro-app-demo.mp4" type="video/mp4">
-            </video>
+          <div class="phone-frame app-demo" aria-label="Interactive SUNCRO app demo">
+            <div class="demo-statusbar"><span>14:34</span><span>● ● ◒</span></div>
+            <div class="demo-toolbar">
+              <img src="assets/img/suncro-app-icon.svg" alt="SUNCRO">
+              <button type="button" data-demo-action="dashboard" aria-label="Dashboard">⌂</button>
+              <button type="button" data-demo-action="devices" aria-label="Devices">▣</button>
+              <button type="button" data-demo-action="language" aria-label="App language">◎</button>
+              <button type="button" data-demo-action="refresh" aria-label="Refresh">↻</button>
+            </div>
+            <div class="demo-content" tabindex="0">
+              <section class="demo-screen active" data-demo-screen="dashboard">
+                <div class="demo-online"><i></i><span data-demo-text="online">Device is online</span><b>PSM-001-PRO</b></div>
+                <div class="demo-sun-card"><span class="demo-sun">☀</span><strong>699</strong><b>W/m²</b><p data-demo-text="strongSun">Strong sun</p><small data-demo-text="directMeasurement">Direct measurement via PYR20</small></div>
+                <div class="demo-two-cards">
+                  <article><span>☀</span><small data-demo-text="illuminance">Illuminance</small><strong>26 902</strong><b>lux</b></article>
+                  <article><span>⌁</span><small>Wi-Fi</small><strong>-46</strong><b>dBm</b></article>
+                </div>
+                <article class="demo-source"><span>▦</span><small data-demo-text="radiationSource">Radiation source</small><strong>PYR20</strong><b>PRO</b></article>
+                <article class="demo-energy">
+                  <h4 data-demo-text="todayEnergy">Today's solar energy</h4>
+                  <p><i class="orange"></i><span data-demo-text="pyrEnergy">PYR20 energy</span><b>3.08 kWh/m²</b></p>
+                  <p><i class="blue"></i><span data-demo-text="estimatedEnergy">Estimated TSL energy</span><b>2.99 kWh/m²</b></p>
+                </article>
+                <article class="demo-statistics">
+                  <h4>▣ <span data-demo-text="todayStats">Today's statistics</span></h4>
+                  <p><span data-demo-text="maxPyr">Maximum PYR20</span><b>755 W/m²</b></p>
+                  <p><span data-demo-text="maxLight">Maximum illuminance</span><b>29 849 lux</b></p>
+                  <p><span data-demo-text="strongLight">Strong light</span><b>244 min</b></p>
+                  <p><span data-demo-text="directSun">Direct sun</span><b>181 min</b></p>
+                </article>
+                <button class="demo-detail-button" type="button" data-demo-action="stats"><span data-demo-text="openComparison">Open sensor comparison</span> →</button>
+              </section>
+              <section class="demo-screen" data-demo-screen="devices">
+                <button class="demo-back" type="button" data-demo-action="dashboard">← <span data-demo-text="myDevices">My devices</span></button>
+                <h3 data-demo-text="selectDevice">Select a device</h3>
+                <p class="demo-muted" data-demo-text="selectDeviceHelp">Choose which SUNCRO device you want to view.</p>
+                <button class="demo-device-card selected" type="button" data-demo-action="dashboard"><span>▦</span><span><b>SUNCRO 1</b><small>PSM-001 · PRO</small></span><i>✓</i></button>
+                <button class="demo-device-card" type="button" data-demo-action="offline"><span>▦</span><span><b>SUNCRO 2</b><small>PSM-002 · BASIC</small></span><i>•••</i></button>
+                <p class="demo-note" data-demo-note></p>
+              </section>
+              <section class="demo-screen" data-demo-screen="stats">
+                <button class="demo-back" type="button" data-demo-action="dashboard">← <span data-demo-text="dashboard">Dashboard</span></button>
+                <p class="demo-mini-label" data-demo-text="dailyComparison">DAILY COMPARISON</p>
+                <h3 data-demo-text="sensorsAligned">Two sensors. Almost identical.</h3>
+                <div class="demo-comparison-score"><strong data-demo-text="score">0.1%</strong><span data-demo-text="dailyDeviation">daily deviation</span></div>
+                <div class="demo-bars"><p><span>SUNCRO 1</span><i style="--bar:99.9%"></i><b>3.080</b></p><p><span>SUNCRO 2</span><i style="--bar:99.8%"></i><b>3.077</b></p></div>
+                <p class="demo-comparison-copy" data-demo-text="comparisonCopy">Daily results stay exceptionally close, giving you confidence in every measurement.</p>
+                <button class="demo-detail-button" type="button" data-demo-action="dashboard"><span data-demo-text="backLive">Back to live data</span> →</button>
+              </section>
+              <div class="demo-language-panel" hidden>
+                <p data-demo-text="chooseLanguage">Choose app language</p>
+                <div><button type="button" data-demo-lang="en">EN</button><button type="button" data-demo-lang="de">DE</button><button type="button" data-demo-lang="hr">HR</button><button type="button" data-demo-lang="fr">FR</button></div>
+              </div>
+            </div>
           </div>
-          <div class="live-pill"><i></i><span>LIVE APP</span></div>
+          <div class="live-pill"><i></i><span data-demo-text="interactiveDemo">INTERACTIVE DEMO</span></div>
         </div>
         <div class="app-story">
           <article class="app-point reveal">
