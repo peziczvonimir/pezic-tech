@@ -21,6 +21,7 @@ body{overflow-x:hidden;text-rendering:optimizeLegibility}
 .hero-visual{height:560px}.orbit-one{width:470px;height:470px}.orbit-two{width:345px;height:345px}
 .device{width:250px;height:340px;padding:32px 27px;border-radius:32px;transform:perspective(900px) rotateY(-12deg) rotateX(4deg);box-shadow:0 58px 90px rgba(0,0,0,.36),inset 0 0 0 1px rgba(255,255,255,.13)}
 .device-reading{position:relative;z-index:2;margin-top:42px;display:grid;grid-template-columns:1fr auto;align-items:end}.device-reading span{grid-column:1/-1;font-size:7px;letter-spacing:.2em;color:#8e9aa5}.device-reading strong{font-size:54px;line-height:1;color:#fff;letter-spacing:-.06em}.device-reading b{padding-bottom:7px;color:var(--orange);font-size:10px}.device-lines{opacity:.55}
+.demo-sun-card strong{font-size:28px;letter-spacing:-.03em;margin:8px 0 2px}.demo-sun-card p{margin-top:4px}
 .data-card{border:0;border-top:3px solid var(--orange);backdrop-filter:blur(12px);background:rgba(255,255,255,.92)}
 .card-top{top:67px;right:-2px}.card-bottom{bottom:56px;left:-4px}.data-card strong{font-size:17px}
 .trust-line{padding:24px 0 28px}.trust-line p{font-size:10px}.trust-line span{color:#bb7800}
