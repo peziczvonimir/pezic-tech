@@ -1,9 +1,10 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { posix } from 'node:path';
 import { copy, languages, products } from './copy.mjs';
+import { legalCopy, legalSources, operator } from './legal.mjs';
 
 const origin = 'https://pezic-tech.com/';
-const email = 'info@pezic-tech.com';
+const email = operator.email;
 const legal = ['legal/impressum.html', 'legal/datenschutz.html'];
 const sections = ['products', 'engineering', 'about', 'contact'];
 const pages = ['home', ...products.map(product => product.id), ...legal];
@@ -229,23 +230,50 @@ function productPage(lang, product, context) {
   ${contact(t)}`;
 }
 
+function legalPage(lang, index, { t, route }) {
+  const notice = legalCopy[lang];
+  const privacy = index === 1;
+  const sourceLinks = keys => keys.map(key => {
+    const [label, href] = legalSources[key];
+    return `<a href="${escape(href)}">${escape(label)}</a>`;
+  }).join(' <span aria-hidden="true">·</span> ');
+  const address = `<address><strong>${escape(operator.name)}</strong><br>
+    ${escape(operator.street)}<br>${escape(operator.city)}<br>${escape(notice.country)}<br>
+    <a href="mailto:${email}">${email}</a></address>`;
+  return `<section class="section legal-page"><div class="wrap">
+    <p class="eyebrow"><i></i>${escape(t.legal)}</p>
+    <h1>${escape(t.legalNames[index])}</h1>
+    <p>${escape(privacy ? notice.scope : notice.imprint)}</p>
+    <h2>${escape(privacy ? notice.controller : notice.operator)}</h2>
+    ${address}
+    ${privacy ? notice.sections.map(([title, paragraphs, links]) => `<section>
+      <h2>${escape(title)}</h2>
+      ${paragraphs.map(paragraph => `<p>${escape(paragraph)}</p>`).join('')}
+      ${links ? `<p class="legal-links">${sourceLinks(links)}</p>` : ''}
+    </section>`).join('') + `<p class="legal-links">${sourceLinks(['heatcontrol'])}</p>` : ''}
+    <p class="legal-links"><a href="${route(lang, legal[1 - index])}">${escape(t.legalNames[1 - index])}</a></p>
+  </div></section>`;
+}
+
 function render(lang, page) {
   const context = shell(lang, page);
-  const { t, asset, header, footer, section } = context;
+  const { t, asset, header, footer } = context;
   const product = products.find(item => item.id === page);
   const legalIndex = legal.indexOf(page);
-  const description = product ? t[page].description : legalIndex >= 0 ? t.legalText[legalIndex] : t.intro;
+  const description = product ? t[page].description : legalIndex === 0 ? legalCopy[lang].imprint : legalIndex === 1 ? legalCopy[lang].scope : t.intro;
   const title = product ? product.name + ' · Pezic Tech Solutions' : legalIndex >= 0
     ? t.legalNames[legalIndex] + ' · Pezic Tech Solutions'
     : 'Pezic Tech Solutions · ' + t.fields.join(' / ');
   const content = product ? productPage(lang, product, context) : legalIndex >= 0
-    ? `<section class="section legal-page"><div class="wrap"><p class="eyebrow"><i></i>${escape(t.legalDraft)}</p><h1>${escape(t.legalNames[legalIndex])}</h1><p>${escape(description)}</p><a class="product-link" href="${section('contact')}">${escape(t.contact)} ${icon('arrow')}</a></div></section>`
+    ? legalPage(lang, legalIndex, context)
     : homepage(lang, context);
   const canonical = origin + pathFor(lang, page);
   return `<!doctype html>
 <html lang="${lang}">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escape(title)}</title>
   <meta name="description" content="${escape(description)}">
@@ -276,6 +304,11 @@ for (const lang of Object.keys(languages)) {
     const path = pathFor(lang, page);
     const file = new URL('../' + (path.endsWith('.html') ? path : path + 'index.html'), import.meta.url);
     await mkdir(new URL('.', file), { recursive: true });
-    await writeFile(file, render(lang, page));
+    await writeFile(file, render(lang, page).replace(/[ \t]+$/gm, ''));
   }
 }
+
+const sitemap = Object.keys(languages).flatMap(lang =>
+  pages.filter(page => !legal.includes(page)).map(page => `  <url><loc>${origin + pathFor(lang, page)}</loc></url>`));
+await writeFile(new URL('../sitemap.xml', import.meta.url),
+  '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + sitemap.join('\n') + '\n</urlset>\n');

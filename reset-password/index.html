@@ -2,16 +2,16 @@
 <html lang="hr">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src https://tmbmjtqmvpvrvbyqqiry.supabase.co; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#0b0d10">
   <title>SUNCRO — Nova lozinka</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/auth-confirmed.css">
   <link rel="stylesheet" href="../assets/css/reset-password.css">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="../assets/vendor/supabase-2.119.0.js"></script>
+  <script defer src="../assets/js/account-language.js"></script>
   <script defer src="../assets/js/reset-password.js"></script>
 </head>
 <body>
@@ -21,7 +21,7 @@
         <button type="button" data-lang="de" lang="de" aria-label="Deutsch">DE</button>
         <button type="button" data-lang="en" lang="en" aria-label="English">EN</button>
         <button type="button" data-lang="hr" lang="hr" aria-label="Hrvatski">HR</button>
-        <button type="button" data-lang="it" lang="it" aria-label="Italiano">IT</button>
+        <button type="button" data-lang="fr" lang="fr" aria-label="Français">FR</button>
       </div>
       <img class="logo" src="../assets/img/suncro-logo-orange.svg" alt="SUNCRO">
       <div id="loading" class="loading" data-copy="loading">Provjera poveznice…</div>
@@ -42,9 +42,13 @@
         <a class="app-button" href="suncro://login-callback" data-copy="openApp">Otvori SUNCRO aplikaciju</a>
       </div>
       <div id="link-error" class="error-box" hidden>
-        <strong data-copy="errorTitle">Poveznica nije valjana</strong>
+        <h1 data-copy="errorTitle">Poveznica nije valjana</h1>
         <p data-copy="errorMessage">Poveznica je istekla ili je već iskorištena. U aplikaciji ponovno odaberite “Zaboravljena lozinka”.</p>
       </div>
+      <nav class="account-legal" aria-label="Pravne informacije">
+        <a href="../hr/legal/impressum.html">Impresum</a>
+        <a href="../hr/legal/datenschutz.html">Privatnost</a>
+      </nav>
     </section>
   </main>
 </body>
