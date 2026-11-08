@@ -1,4 +1,5 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { posix } from 'node:path';
 import { copy, languages, products } from './copy.mjs';
 import { legalCopy, legalSources, operator } from './legal.mjs';
@@ -8,6 +9,11 @@ const email = operator.email;
 const legal = ['legal/impressum.html', 'legal/datenschutz.html'];
 const sections = ['products', 'engineering', 'about', 'contact'];
 const pages = ['home', ...products.map(product => product.id), ...legal];
+const versionedAssets = ['css/pezic.css', 'js/site.js'];
+const assetVersions = new Map(await Promise.all(versionedAssets.map(async path => {
+  const contents = await readFile(new URL('../assets/' + path, import.meta.url), 'utf8');
+  return [path, createHash('sha256').update(contents.replace(/\r\n/g, '\n')).digest('hex').slice(0, 12)];
+})));
 
 const escape = text => String(text).replace(/[&<>"']/g, character => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
@@ -120,7 +126,7 @@ function shell(lang, page) {
     const path = pathFor(targetLang, targetPage);
     return (path.endsWith('.html') ? relative(path) : relative(path) + '/') + hash;
   };
-  const asset = path => relative('assets/' + path);
+  const asset = path => relative('assets/' + path) + (assetVersions.has(path) ? '?v=' + assetVersions.get(path) : '');
   const home = route(lang, 'home');
   const section = id => (page === 'home' ? '' : home) + '#' + id;
   const brand = `<a class="brand" href="${home}" aria-label="Pezic Tech Solutions · ${escape(t.home)}">
