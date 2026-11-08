@@ -33,8 +33,6 @@ const icons = {
   network: '<circle cx="10" cy="10" r="2.5"/><circle cx="4" cy="4" r="1.5"/><circle cx="16" cy="4" r="1.5"/><circle cx="10" cy="17" r="1.5"/><path d="m5 5 3 3m7-3-3 3m-2 5v2.5"/>',
   screen: '<rect x="2.5" y="4" width="15" height="12" rx="2"/><path d="m5 12 3-3 3 2 4-4"/>',
   globe: '<circle cx="10" cy="10" r="7"/><ellipse cx="10" cy="10" rx="3.2" ry="7"/><path d="M3 10h14"/>',
-  pause: '<path d="M7 4v12m6-12v12"/>',
-  play: '<path d="m7 4 8 6-8 6Z"/>',
   menu: '<path d="M3 6h14M3 10h14M3 14h14"/>',
 };
 
@@ -110,9 +108,6 @@ function signalStrip(t, asset) {
         <ul class="signal-group" role="list">${row}</ul>
         <ul class="signal-group signal-repeat" aria-hidden="true">${row}</ul>
       </div></div>
-      <button class="motion-control" type="button" aria-label="${escape(t.motion[0])}" title="${escape(t.motion[0])}" data-pause="${escape(t.motion[0])}" data-resume="${escape(t.motion[1])}" hidden>
-        <span class="motion-pause">${icon('pause')}</span><span class="motion-play">${icon('play')}</span>
-      </button>
     </div>
   </div>`;
 }

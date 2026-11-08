@@ -53,19 +53,6 @@ document.querySelectorAll('[data-language]').forEach(link => {
 });
 
 if (document.body.dataset.page === 'home') {
-  const hero = document.querySelector('.hero');
-  const motion = hero.querySelector('.motion-control');
-  if (motion) {
-    motion.addEventListener('click', () => {
-      const paused = hero.classList.toggle('motion-paused');
-      const label = paused ? motion.dataset.resume : motion.dataset.pause;
-      motion.setAttribute('aria-label', label);
-      motion.title = label;
-    });
-    hero.classList.add('motion-enabled');
-    motion.hidden = false;
-  }
-
   const destinations = { '#suncro': 'suncro/', '#app': 'suncro/#app', '#process': 'suncro/', '#support': '#contact' };
   const redirectLegacySection = () => {
     if (Object.hasOwn(destinations, location.hash)) location.replace(destinations[location.hash]);
