@@ -1,27 +1,20 @@
-# Pezic Tech Solutions / SUNCRO website
+# Pezic Tech Solutions
 
-Static, responsive starter website for `pezic-tech.com`.
+Static website for `pezic-tech.com` with a Pezic Tech homepage and separate pages for SUNCRO and HEATCONTROL. German is served at the root. English, Croatian and Italian use `/en/`, `/hr/` and `/it/`.
 
 ## Preview
 
-Open `index.html` directly, or serve this folder with any static web server.
+From the project directory, run `python -m http.server 8765 --bind 127.0.0.1` and open `http://127.0.0.1:8765/`. Use a local server so directory URLs and language navigation behave as they do on the host.
 
-## Structure
+## Edit
 
-- `index.html` — homepage content and navigation
-- `assets/css/styles.css` — design tokens, layout and responsive styling
-- `assets/css/suncro-brand.css` — official SUNCRO palette and brand-specific components
-- `assets/js/main.js` — mobile menu, reveal animation and active navigation
-- `assets/img/` — official SUNCRO web assets from the approved master pack
-- `legal/` — German legal-page placeholders
+- `site/copy.mjs` contains the localized copy and the product list.
+- `site/build.mjs` renders the shared layouts. Run `node site/build.mjs` after editing the layouts or copy, then commit the generated HTML. The host serves the checked-in files directly and needs no build step.
+- `assets/css/pezic.css` and `assets/js/site.js` provide styles and navigation behavior.
+- `auth-confirmed/` and `reset-password/` are existing SUNCRO account routes. Keep their public URLs when publishing the marketing site.
 
-## Version control
+Add a product by registering it in the product list and adding copy in all four languages. Choose a visual theme and add any logo, portal or demo links in its entry.
 
-This folder is an independent Git repository. Create a commit after each meaningful design or content milestone.
+## Publication
 
-## Before launch
-
-1. Replace the temporary CSS logo with the official SUNCRO/Pezic Tech artwork.
-2. Confirm final company copy, product claims and contact address.
-3. Complete and legally review Impressum and Datenschutz.
-4. Decide on hosting, analytics and cookie-consent requirements.
+The existing domain is declared in `CNAME`. The legal notice and privacy notice are marked as drafts in each locale. Complete and review the operator details and privacy notice before publishing.
