@@ -27,6 +27,8 @@ const icons = {
   network: '<circle cx="10" cy="10" r="2.5"/><circle cx="4" cy="4" r="1.5"/><circle cx="16" cy="4" r="1.5"/><circle cx="10" cy="17" r="1.5"/><path d="m5 5 3 3m7-3-3 3m-2 5v2.5"/>',
   screen: '<rect x="2.5" y="4" width="15" height="12" rx="2"/><path d="m5 12 3-3 3 2 4-4"/>',
   globe: '<circle cx="10" cy="10" r="7"/><ellipse cx="10" cy="10" rx="3.2" ry="7"/><path d="M3 10h14"/>',
+  pause: '<path d="M7 4v12m6-12v12"/>',
+  play: '<path d="m7 4 8 6-8 6Z"/>',
   menu: '<path d="M3 6h14M3 10h14M3 14h14"/>',
 };
 
@@ -47,6 +49,11 @@ function board() {
       <circle cx="130" cy="246" r="4"/><circle cx="502" cy="226" r="4"/><circle cx="247" cy="477" r="4"/><circle cx="388" cy="52" r="4"/>
     </g>
     <path d="M0 376h117l54-54h82m139-128h67l61-61h120M343 365v82l37 37v56" stroke="#54d7ff" stroke-opacity=".68"/>
+    <g class="board-pulses" stroke="#b0eeff" stroke-width="2.5" stroke-linecap="round">
+      <path pathLength="100" d="M0 376h117l54-54h82"/>
+      <path pathLength="100" d="M392 194h67l61-61h120"/>
+      <path pathLength="100" d="M343 365v82l37 37v56"/>
+    </g>
     <circle cx="117" cy="376" r="3" fill="#7ee4ff"/><circle cx="520" cy="133" r="3" fill="#7ee4ff"/><circle cx="343" cy="447" r="3" fill="#7ee4ff"/>
   </svg>`;
 }
@@ -63,7 +70,7 @@ function graphic(product, label) {
     <div class="graphic-caption"><span>${escape(label)}</span><span class="graphic-indicator"></span></div>
     <svg viewBox="0 0 400 132" preserveAspectRatio="none">
       <defs><linearGradient id="${fill}" x2="0" y2="1" gradientUnits="objectBoundingBox">
-        <stop stop-color="${solar ? '#ff9c4c' : '#ff9caf'}" stop-opacity="${solar ? '.33' : '.96'}"/><stop offset="1" stop-color="${solar ? '#ff9c4c' : '#d6577d'}" stop-opacity=".04"/>
+        <stop stop-color="${solar ? '#ff9c4c' : '#c5ec80'}" stop-opacity="${solar ? '.33' : '.96'}"/><stop offset="1" stop-color="${solar ? '#ff9c4c' : '#7eab50'}" stop-opacity=".07"/>
       </linearGradient></defs>
       <path d="M0 25h400M0 60h400M0 95h400M0 130h400" stroke="currentColor" opacity=".15"/>
       ${drawing}
@@ -72,9 +79,36 @@ function graphic(product, label) {
   </div>`;
 }
 
+function productMark(product, asset) {
+  return product.mark
+    ? `<img class="product-mark" src="${asset('img/' + product.mark)}" alt="" width="40" height="40">`
+    : icon('screen');
+}
+
 function productArt(product, caption, label, asset) {
-  const mark = product.mark ? `<img src="${asset('img/' + product.mark)}" alt="" width="35" height="35">` : icon('screen');
-  return `<div class="product-art" aria-hidden="true"><div class="art-top"><span>${escape(caption)}</span>${mark}</div>${graphic(product, label)}</div>`;
+  return `<div class="product-art" aria-hidden="true">
+    <div class="art-top"><div class="art-brand">${productMark(product, asset)}<span>${escape(caption)}</span></div><span class="art-index">/ ${product.number}</span></div>
+    ${graphic(product, label)}
+  </div>`;
+}
+
+function signalStrip(t, asset) {
+  const fields = t.fields.map((field, index) =>
+    `<li>${icon(['chip', 'network', 'screen'][index])}${escape(field)}${index === 1 ? ' <small>IoT</small>' : ''}</li>`);
+  const brands = products.map(product => `<li>${productMark(product, asset)}${product.name}</li>`);
+  const row = [...fields, ...brands].join('');
+  return `<div class="signal-strip">
+    <div class="wrap signal-inner">
+      <span class="signal-index" aria-hidden="true">PZ / 01</span>
+      <div class="signal-window"><div class="signal-track">
+        <ul class="signal-group" role="list">${row}</ul>
+        <ul class="signal-group signal-repeat" aria-hidden="true">${row}</ul>
+      </div></div>
+      <button class="motion-control" type="button" aria-label="${escape(t.motion[0])}" title="${escape(t.motion[0])}" data-pause="${escape(t.motion[0])}" data-resume="${escape(t.motion[1])}" hidden>
+        <span class="motion-pause">${icon('pause')}</span><span class="motion-play">${icon('play')}</span>
+      </button>
+    </div>
+  </div>`;
 }
 
 function shell(lang, page) {
@@ -140,20 +174,19 @@ function homepage(lang, context) {
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <p class="eyebrow"><i></i>${escape(t.eyebrow)}</p>
-        <h1>${escape(t.headline[0])}<br><span>${escape(t.headline[1])}</span></h1>
+        <h1><span class="hero-line">${escape(t.headline[0])}</span> <span class="hero-line hero-accent">${escape(t.headline[1])}</span></h1>
         <p class="hero-intro">${escape(t.intro)}</p>
         <div class="actions">${button('#products', t.explore, 'primary', 'down')}${button('#contact', t.contact, 'outline')}</div>
       </div>
       <div class="board" aria-hidden="true">
         ${board()}
+        <div class="board-ring"></div>
         <div class="board-chip"><span class="corner corner-tl"></span><span class="corner corner-br"></span><div class="hero-logo"><img src="${asset('img/pezic-logo-color.png')}" alt="" width="1024" height="768" fetchpriority="high"></div></div>
-        <span class="board-index">FIG. 01 <b> / </b> PEZIC TECH</span>
+        <span class="board-index">PZ.01 <b> / </b> PEZIC TECH SOLUTIONS</span>
         <span class="board-cross">+</span>
       </div>
     </div>
-    <div class="wrap field-strip">
-      ${t.fields.map((field, index) => `<span>${icon(['chip', 'network', 'screen'][index])}${escape(field)}${index === 1 ? ' <small>IoT</small>' : ''}</span>`).join('')}
-    </div>
+    ${signalStrip(t, asset)}
   </section>
   <section class="section portfolio" id="products">
     <div class="wrap">
@@ -166,7 +199,7 @@ function homepage(lang, context) {
           const p = t[product.id];
           return `<article class="product-card ${product.theme}" id="${product.id}">
             <a href="${route(lang, product.id)}" aria-labelledby="link-${product.id} name-${product.id}">
-              ${productArt(product, ' / ' + product.number, p.visual, asset)}
+              ${productArt(product, product.name, p.visual, asset)}
               <div class="product-copy"><p class="micro">${escape(p.category)}</p><h3 id="name-${product.id}">${product.name}</h3><p>${escape(p.description)}</p><span class="product-link" id="link-${product.id}">${escape(t.productLink)} ${icon('arrow')}</span></div>
             </a>
           </article>`;
@@ -197,7 +230,7 @@ function productPage(lang, product, context) {
   const p = t[product.id];
   const brand = product.logo
     ? `<img class="product-logo" src="${asset('img/' + product.logo)}" alt="${product.name}">`
-    : `<span class="product-wordmark">${product.name}</span>`;
+    : `<span class="product-wordmark">${productMark(product, asset)}${product.name}</span>`;
   const demo = p.demoTabs
     ? `<div class="demo-panel">
         <div class="demo-heading"><span><i></i> ${product.name}</span><span>${escape(p.demo)}</span></div>
@@ -272,7 +305,7 @@ function render(lang, page) {
 <html lang="${lang}">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escape(title)}</title>

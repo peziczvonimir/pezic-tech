@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pezic Tech Solutions · Électronique / Objets connectés / Logiciels</title>
@@ -47,7 +47,7 @@
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <p class="eyebrow"><i></i>Technologie développée en Allemagne</p>
-        <h1>L’électronique rencontre<br><span>le logiciel.</span></h1>
+        <h1><span class="hero-line">L’électronique rencontre</span> <span class="hero-line hero-accent">le logiciel.</span></h1>
         <p class="hero-intro">Pezic Tech associe électronique, objets connectés et logiciels. Nous rendons les données de mesure plus faciles à comprendre, du suivi solaire aux rapports de chauffage.</p>
         <div class="actions"><a class="button button-primary" href="#products">Découvrir les produits<svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4v11m-5-5 5 5 5-5"/></svg></a><a class="button button-outline" href="#contact">Nous contacter<svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h11m-5-5 5 5-5 5"/></svg></a></div>
       </div>
@@ -60,16 +60,31 @@
       <circle cx="130" cy="246" r="4"/><circle cx="502" cy="226" r="4"/><circle cx="247" cy="477" r="4"/><circle cx="388" cy="52" r="4"/>
     </g>
     <path d="M0 376h117l54-54h82m139-128h67l61-61h120M343 365v82l37 37v56" stroke="#54d7ff" stroke-opacity=".68"/>
+    <g class="board-pulses" stroke="#b0eeff" stroke-width="2.5" stroke-linecap="round">
+      <path pathLength="100" d="M0 376h117l54-54h82"/>
+      <path pathLength="100" d="M392 194h67l61-61h120"/>
+      <path pathLength="100" d="M343 365v82l37 37v56"/>
+    </g>
     <circle cx="117" cy="376" r="3" fill="#7ee4ff"/><circle cx="520" cy="133" r="3" fill="#7ee4ff"/><circle cx="343" cy="447" r="3" fill="#7ee4ff"/>
   </svg>
+        <div class="board-ring"></div>
         <div class="board-chip"><span class="corner corner-tl"></span><span class="corner corner-br"></span><div class="hero-logo"><img src="../assets/img/pezic-logo-color.png" alt="" width="1024" height="768" fetchpriority="high"></div></div>
-        <span class="board-index">FIG. 01 <b> / </b> PEZIC TECH</span>
+        <span class="board-index">PZ.01 <b> / </b> PEZIC TECH SOLUTIONS</span>
         <span class="board-cross">+</span>
       </div>
     </div>
-    <div class="wrap field-strip">
-      <span><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="10" height="10" rx="2"/><path d="M8 2v3m4-3v3m-4 10v3m4-3v3M2 8h3m-3 4h3m10-4h3m-3 4h3"/><rect x="8" y="8" width="4" height="4" rx=".5"/></svg>Électronique</span><span><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="2.5"/><circle cx="4" cy="4" r="1.5"/><circle cx="16" cy="4" r="1.5"/><circle cx="10" cy="17" r="1.5"/><path d="m5 5 3 3m7-3-3 3m-2 5v2.5"/></svg>Objets connectés <small>IoT</small></span><span><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="15" height="12" rx="2"/><path d="m5 12 3-3 3 2 4-4"/></svg>Logiciels</span>
+    <div class="signal-strip">
+    <div class="wrap signal-inner">
+      <span class="signal-index" aria-hidden="true">PZ / 01</span>
+      <div class="signal-window"><div class="signal-track">
+        <ul class="signal-group" role="list"><li><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="10" height="10" rx="2"/><path d="M8 2v3m4-3v3m-4 10v3m4-3v3M2 8h3m-3 4h3m10-4h3m-3 4h3"/><rect x="8" y="8" width="4" height="4" rx=".5"/></svg>Électronique</li><li><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="2.5"/><circle cx="4" cy="4" r="1.5"/><circle cx="16" cy="4" r="1.5"/><circle cx="10" cy="17" r="1.5"/><path d="m5 5 3 3m7-3-3 3m-2 5v2.5"/></svg>Objets connectés <small>IoT</small></li><li><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="15" height="12" rx="2"/><path d="m5 12 3-3 3 2 4-4"/></svg>Logiciels</li><li><img class="product-mark" src="../assets/img/suncro-symbol-orange.svg" alt="" width="40" height="40">SUNCRO</li><li><img class="product-mark" src="../assets/img/heatcontrol-mark.svg" alt="" width="40" height="40">HEATCONTROL</li></ul>
+        <ul class="signal-group signal-repeat" aria-hidden="true"><li><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="10" height="10" rx="2"/><path d="M8 2v3m4-3v3m-4 10v3m4-3v3M2 8h3m-3 4h3m10-4h3m-3 4h3"/><rect x="8" y="8" width="4" height="4" rx=".5"/></svg>Électronique</li><li><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="2.5"/><circle cx="4" cy="4" r="1.5"/><circle cx="16" cy="4" r="1.5"/><circle cx="10" cy="17" r="1.5"/><path d="m5 5 3 3m7-3-3 3m-2 5v2.5"/></svg>Objets connectés <small>IoT</small></li><li><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="15" height="12" rx="2"/><path d="m5 12 3-3 3 2 4-4"/></svg>Logiciels</li><li><img class="product-mark" src="../assets/img/suncro-symbol-orange.svg" alt="" width="40" height="40">SUNCRO</li><li><img class="product-mark" src="../assets/img/heatcontrol-mark.svg" alt="" width="40" height="40">HEATCONTROL</li></ul>
+      </div></div>
+      <button class="motion-control" type="button" aria-label="Mettre l’animation en pause" title="Mettre l’animation en pause" data-pause="Mettre l’animation en pause" data-resume="Reprendre l’animation" hidden>
+        <span class="motion-pause"><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v12m6-12v12"/></svg></span><span class="motion-play"><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m7 4 8 6-8 6Z"/></svg></span>
+      </button>
     </div>
+  </div>
   </section>
   <section class="section portfolio" id="products">
     <div class="wrap">
@@ -80,11 +95,13 @@
       <div class="product-grid">
         <article class="product-card solar" id="suncro">
             <a href="suncro/" aria-labelledby="link-suncro name-suncro">
-              <div class="product-art" aria-hidden="true"><div class="art-top"><span> / 01</span><img src="../assets/img/suncro-symbol-orange.svg" alt="" width="35" height="35"></div><div class="product-graphic" aria-hidden="true">
+              <div class="product-art" aria-hidden="true">
+    <div class="art-top"><div class="art-brand"><img class="product-mark" src="../assets/img/suncro-symbol-orange.svg" alt="" width="40" height="40"><span>SUNCRO</span></div><span class="art-index">/ 01</span></div>
+    <div class="product-graphic" aria-hidden="true">
     <div class="graphic-caption"><span>Activité solaire</span><span class="graphic-indicator"></span></div>
     <svg viewBox="0 0 400 132" preserveAspectRatio="none">
       <defs><linearGradient id="graphic-suncro" x2="0" y2="1" gradientUnits="objectBoundingBox">
-        <stop stop-color="#ff9c4c" stop-opacity=".33"/><stop offset="1" stop-color="#ff9c4c" stop-opacity=".04"/>
+        <stop stop-color="#ff9c4c" stop-opacity=".33"/><stop offset="1" stop-color="#ff9c4c" stop-opacity=".07"/>
       </linearGradient></defs>
       <path d="M0 25h400M0 60h400M0 95h400M0 130h400" stroke="currentColor" opacity=".15"/>
       <path d="M0 117c24 0 32-4 47-12s25-35 40-37c15-2 18 12 32 8s24-46 43-51c18-6 30 21 47 18 18-4 23-19 37-12 14 8 22 26 36 28s21-10 35-4 20 31 35 39 27 13 48 13V132H0Z" fill="url(#graphic-suncro)"/>
@@ -92,22 +109,26 @@
        <path d="M165 4v125" stroke="#ffb061" stroke-dasharray="3 5" opacity=".55"/><circle cx="165" cy="25" r="4" fill="#ffe2bc" stroke="#fba650" stroke-width="2"/>
     </svg>
     <div class="graphic-scale"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span></div>
-  </div></div>
+  </div>
+  </div>
               <div class="product-copy"><p class="micro">Suivi solaire</p><h3 id="name-suncro">SUNCRO</h3><p>SUNCRO réunit les conditions d’ensoleillement actuelles, le bilan de la journée et l’état de l’appareil dans un même tableau de bord.</p><span class="product-link" id="link-suncro">Découvrir le produit <svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h11m-5-5 5 5-5 5"/></svg></span></div>
             </a>
           </article><article class="product-card thermal" id="heatcontrol">
             <a href="heatcontrol/" aria-labelledby="link-heatcontrol name-heatcontrol">
-              <div class="product-art" aria-hidden="true"><div class="art-top"><span> / 02</span><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="15" height="12" rx="2"/><path d="m5 12 3-3 3 2 4-4"/></svg></div><div class="product-graphic" aria-hidden="true">
+              <div class="product-art" aria-hidden="true">
+    <div class="art-top"><div class="art-brand"><img class="product-mark" src="../assets/img/heatcontrol-mark.svg" alt="" width="40" height="40"><span>HEATCONTROL</span></div><span class="art-index">/ 02</span></div>
+    <div class="product-graphic" aria-hidden="true">
     <div class="graphic-caption"><span>Données de chauffage</span><span class="graphic-indicator"></span></div>
     <svg viewBox="0 0 400 132" preserveAspectRatio="none">
       <defs><linearGradient id="graphic-heatcontrol" x2="0" y2="1" gradientUnits="objectBoundingBox">
-        <stop stop-color="#ff9caf" stop-opacity=".96"/><stop offset="1" stop-color="#d6577d" stop-opacity=".04"/>
+        <stop stop-color="#c5ec80" stop-opacity=".96"/><stop offset="1" stop-color="#7eab50" stop-opacity=".07"/>
       </linearGradient></defs>
       <path d="M0 25h400M0 60h400M0 95h400M0 130h400" stroke="currentColor" opacity=".15"/>
       <rect x="5" y="86" width="22" height="44" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.57"/><rect x="38" y="66" width="22" height="64" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.69"/><rect x="71" y="52" width="22" height="78" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.8099999999999999"/><rect x="104" y="66" width="22" height="64" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.57"/><rect x="137" y="42" width="22" height="88" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.69"/><rect x="170" y="20" width="22" height="110" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.8099999999999999"/><rect x="203" y="34" width="22" height="96" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.57"/><rect x="236" y="18" width="22" height="112" rx="3" fill="url(#graphic-heatcontrol)" opacity="1"/><rect x="269" y="39" width="22" height="91" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.8099999999999999"/><rect x="302" y="56" width="22" height="74" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.57"/><rect x="335" y="48" width="22" height="82" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.69"/><rect x="368" y="69" width="22" height="61" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.8099999999999999"/>
     </svg>
     <div class="graphic-scale"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span></div>
-  </div></div>
+  </div>
+  </div>
               <div class="product-copy"><p class="micro">Données et rapports de chauffage</p><h3 id="name-heatcontrol">HEATCONTROL</h3><p>HEATCONTROL est un portail web qui rassemble les relevés de consommation et les rapports de chauffage des immeubles résidentiels.</p><span class="product-link" id="link-heatcontrol">Découvrir le produit <svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h11m-5-5 5 5-5 5"/></svg></span></div>
             </a>
           </article>
