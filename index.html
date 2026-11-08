@@ -1,257 +1,152 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="SUNCRO brings solar monitoring, daily insights and device status into one clear multilingual experience.">
-  <meta name="theme-color" content="#07101a">
-  <meta property="og:title" content="Pezic Tech Solutions — SUNCRO solar monitoring">
-  <meta property="og:description" content="A clear view of your solar day, available in four languages with direct support.">
+  <title>Pezic Tech Solutions · Elektronik / Vernetzte Geräte / Software</title>
+  <meta name="description" content="Pezic Tech verbindet Elektronik, vernetzte Geräte und Software. Wir machen Messdaten verständlich, vom Solarsensor bis zum Heizkostenportal.">
+  <meta name="theme-color" content="#080e19">
+  <link rel="canonical" href="https://pezic-tech.com/">
+  <link rel="alternate" hreflang="de" href="https://pezic-tech.com/">
+  <link rel="alternate" hreflang="en" href="https://pezic-tech.com/en/">
+  <link rel="alternate" hreflang="hr" href="https://pezic-tech.com/hr/">
+  <link rel="alternate" hreflang="fr" href="https://pezic-tech.com/fr/">
+  <link rel="alternate" hreflang="x-default" href="https://pezic-tech.com/">
   <meta property="og:type" content="website">
+  <meta property="og:title" content="Pezic Tech Solutions · Elektronik / Vernetzte Geräte / Software">
+  <meta property="og:description" content="Pezic Tech verbindet Elektronik, vernetzte Geräte und Software. Wir machen Messdaten verständlich, vom Solarsensor bis zum Heizkostenportal.">
   <meta property="og:url" content="https://pezic-tech.com/">
-  <title>Pezic Tech Solutions — SUNCRO solar monitoring</title>
-  <link rel="icon" href="assets/img/suncro-app-icon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="stylesheet" href="assets/css/suncro-brand.css">
-  <link rel="stylesheet" href="assets/css/app-showcase.css">
-  <link rel="stylesheet" href="assets/css/refinement.css">
-  <script defer src="assets/js/main.js"></script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Pezic Tech Solutions","url":"https://pezic-tech.com/","email":"info@pezic-tech.com","brand":{"@type":"Brand","name":"SUNCRO"}}</script>
+  <meta property="og:image" content="https://pezic-tech.com/assets/img/pezic-logo-color.png">
+  <link rel="icon" href="assets/img/pezic-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/pezic.css">
+  <script src="assets/js/site.js" defer></script>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header" id="top">
-    <div class="container nav-wrap">
-      <a class="brand" href="#top" aria-label="Pezic Tech Solutions home">
-        <img class="brand-symbol" src="assets/img/suncro-app-icon.svg" alt="">
-        <span class="brand-copy"><strong>PEZIC TECH</strong><small>SOLUTIONS</small></span>
-      </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
-        <span class="sr-only">Open menu</span><i></i><i></i>
-      </button>
-      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
-        <a class="active" href="#home">Home</a>
-        <a href="#suncro">SUNCRO</a>
-        <a href="#about">Company</a>
-        <a href="#support">Support</a>
-        <div class="language-switcher" aria-label="Language selection">
-          <button class="active" type="button" data-lang="en">EN</button>
-          <button type="button" data-lang="de">DE</button>
-          <button type="button" data-lang="hr">HR</button>
-          <button type="button" data-lang="fr">FR</button>
-        </div>
-        <a class="nav-cta" href="#contact">Let’s talk <span>↗</span></a>
+<body id="top" data-page="home">
+  <a class="skip" href="#main">Zum Inhalt</a>
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./" aria-label="Pezic Tech Solutions · Startseite">
+    <span class="brand-icon" aria-hidden="true"><img src="assets/img/pezic-logo-color.png" alt="" width="1024" height="768"></span>
+    <span class="brand-type" aria-hidden="true"><strong>PEZIC TECH</strong><small>SOLUTIONS</small></span>
+  </a>
+      <nav class="nav" id="primary-nav" aria-label="Hauptnavigation">
+        <a href="#products">Produkte</a><a href="#engineering">Engineering</a><a href="#about">Über uns</a><a href="#contact">Kontakt</a>
       </nav>
+      <div class="header-tools">
+        <details class="languages">
+    <summary aria-label="Sprache · Deutsch"><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><ellipse cx="10" cy="10" rx="3.2" ry="7"/><path d="M3 10h14"/></svg> <span>DE</span><span class="chevron" aria-hidden="true"></span></summary>
+    <ul><li><a href="./" lang="de" hreflang="de" data-language aria-current="page"><span>Deutsch</span><small>DE</small></a></li><li><a href="en/" lang="en" hreflang="en" data-language><span>English</span><small>EN</small></a></li><li><a href="hr/" lang="hr" hreflang="hr" data-language><span>Hrvatski</span><small>HR</small></a></li><li><a href="fr/" lang="fr" hreflang="fr" data-language><span>Français</span><small>FR</small></a></li></ul>
+  </details>
+        <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menü" hidden><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg></button>
+      </div>
     </div>
   </header>
-
-  <main id="main">
-    <section class="hero" id="home">
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="container hero-layout">
-        <div class="hero-copy reveal">
-          <p class="eyebrow"><span></span> Engineering clarity into every detail</p>
-          <h1>See your solar day.<br><em>Simply.</em></h1>
-          <p class="hero-lead">SUNCRO gives you a clear view of current conditions, daily activity and device status — without technical clutter.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#suncro">Discover SUNCRO <span>↗</span></a>
-            <a class="text-link" href="#app">Try the live demo <span>↓</span></a>
-          </div>
-          <div class="hero-proof"><span><i></i><b>Device online</b></span><span><b>4×</b> interface languages</span></div>
-        </div>
-        <div class="hero-visual reveal" aria-label="Abstract SUNCRO product technology illustration">
-          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-          <div class="device">
-            <div class="device-glow"></div>
-            <img class="device-logo" src="assets/img/suncro-logo-orange.svg" alt="SUNCRO">
-            <span class="device-status"><i></i> SYSTEM READY</span>
-            <div class="device-reading"><span>TODAY'S CONDITIONS</span><strong>STRONG</strong><b>SUN</b></div>
-            <div class="device-lines"><i></i><i></i><i></i><i></i></div>
-          </div>
-          <div class="data-card card-top"><small>SUNCRO APP</small><strong>READY</strong></div>
-          <div class="data-card card-bottom"><small>DEVICE STATUS</small><strong>ONLINE</strong></div>
-        </div>
+  <main id="main" tabindex="-1"><section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow"><i></i>Technologie aus Deutschland</p>
+        <h1>Elektronik trifft<br><span>Software.</span></h1>
+        <p class="hero-intro">Pezic Tech verbindet Elektronik, vernetzte Geräte und Software. Wir machen Messdaten verständlich, vom Solarsensor bis zum Heizkostenportal.</p>
+        <div class="actions"><a class="button button-primary" href="#products">Produkte entdecken<svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4v11m-5-5 5 5 5-5"/></svg></a><a class="button button-outline" href="#contact">Kontakt aufnehmen<svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h11m-5-5 5 5-5 5"/></svg></a></div>
       </div>
-      <div class="container trust-line reveal">
-        <span>01</span><p>Easy daily overview</p><span>02</span><p>Four interface languages</p><span>03</span><p>Direct support</p>
+      <div class="board" aria-hidden="true">
+        <svg class="board-traces" aria-hidden="true" viewBox="0 0 640 540" fill="none">
+    <g stroke="#307a9f" stroke-opacity=".55">
+      <path d="M0 136h112l58 58h84m-254-85h120l49 49h85M0 376h117l54-54h82m-212 103h107l65-65h40m139-166h67l61-61h120m-248 25h45l61-61h88m-194 225h74l55 55h119m-247-17h49l56 56h94M296 180v-66l-42-42V0m89 180V97l45-45V0m-92 365v63l-49 49v63m96-175v82l37 37v56"/>
+      <path d="M0 246h130l20-20h104m-254 64h133l21 21h100m138-85h110l20-20h118m-248 105h116l22-22h110" stroke-dasharray="4 7"/>
+      <circle cx="41" cy="425" r="4"/><circle cx="587" cy="97" r="4"/><circle cx="592" cy="416" r="4"/>
+      <circle cx="130" cy="246" r="4"/><circle cx="502" cy="226" r="4"/><circle cx="247" cy="477" r="4"/><circle cx="388" cy="52" r="4"/>
+    </g>
+    <path d="M0 376h117l54-54h82m139-128h67l61-61h120M343 365v82l37 37v56" stroke="#54d7ff" stroke-opacity=".68"/>
+    <circle cx="117" cy="376" r="3" fill="#7ee4ff"/><circle cx="520" cy="133" r="3" fill="#7ee4ff"/><circle cx="343" cy="447" r="3" fill="#7ee4ff"/>
+  </svg>
+        <div class="board-chip"><span class="corner corner-tl"></span><span class="corner corner-br"></span><div class="hero-logo"><img src="assets/img/pezic-logo-color.png" alt="" width="1024" height="768" fetchpriority="high"></div></div>
+        <span class="board-index">FIG. 01 <b> / </b> PEZIC TECH</span>
+        <span class="board-cross">+</span>
       </div>
-    </section>
-
-    <section class="brand-banner" aria-label="SUNCRO brand">
-      <div class="brand-marquee">
-        <div class="brand-marquee-group">
-          <img src="assets/img/suncro-horizontal-white.png" alt="SUNCRO">
-          <img src="assets/img/suncro-horizontal-white.png" alt="" aria-hidden="true">
-          <img src="assets/img/suncro-horizontal-white.png" alt="" aria-hidden="true">
-        </div>
-        <div class="brand-marquee-group" aria-hidden="true">
-          <img src="assets/img/suncro-horizontal-white.png" alt="">
-          <img src="assets/img/suncro-horizontal-white.png" alt="">
-          <img src="assets/img/suncro-horizontal-white.png" alt="">
-        </div>
-      </div>
-    </section>
-
-    <section class="section suncro-section" id="suncro">
-      <div class="container split-heading reveal">
-        <div><p class="section-index">01 — OUR BRAND</p><h2>Meet <span>SUNCRO.</span></h2></div>
-        <p>SUNCRO is where thoughtful engineering meets everyday usability. A product ecosystem designed with a single goal: dependable performance without unnecessary complexity.</p>
-      </div>
-      <div class="container feature-grid">
-        <article class="feature-card feature-main reveal">
-          <div class="feature-number">01</div><div class="feature-icon">◎</div>
-          <h3>Everything in one view</h3><p>See current conditions, daily summaries and device status in one clear interface.</p>
-          <a href="#contact" aria-label="Ask about SUNCRO products">Explore products <span>↗</span></a>
-        </article>
-        <article class="feature-card reveal"><div class="feature-number">02</div><div class="feature-icon">⌁</div><h3>Your day at a glance</h3><p>Follow how the day develops without spreadsheets or technical clutter.</p></article>
-        <article class="feature-card dark reveal"><div class="feature-number">03</div><div class="feature-icon">◇</div><h3>Designed to feel simple</h3><p>A focused multilingual experience with direct support when you need it.</p></article>
-      </div>
-    </section>
-
-    <section class="section app-section" id="app">
-      <div class="container app-intro reveal">
-        <div>
-          <p class="section-index app-index">02 — SUNCRO APP</p>
-          <h2>Your solar day.<br><span>Clearly visible.</span></h2>
-        </div>
-        <p class="app-lead">Check current conditions, the daily overview and your device status in one simple interface.</p>
-      </div>
-      <div class="container app-showcase">
-        <div class="phone-stage reveal">
-          <div class="phone-glow" aria-hidden="true"></div>
-          <div class="phone-frame app-demo" aria-label="Interactive SUNCRO app demo">
-            <div class="demo-statusbar"><span>14:34</span><span>● ● ◒</span></div>
-            <div class="demo-toolbar">
-              <img src="assets/img/suncro-app-icon.svg" alt="SUNCRO">
-              <button type="button" data-demo-action="dashboard" aria-label="Dashboard">⌂</button>
-              <button type="button" data-demo-action="devices" aria-label="Devices">▣</button>
-              <button type="button" data-demo-action="language" aria-label="App language">◎</button>
-              <button type="button" data-demo-action="refresh" aria-label="Refresh">↻</button>
-            </div>
-            <div class="demo-content" tabindex="0">
-              <section class="demo-screen active" data-demo-screen="dashboard">
-                <div class="demo-online"><i></i><span data-demo-text="online">Device is online</span><b>SUNCRO 1</b></div>
-                <div class="demo-sun-card"><span class="demo-sun">☀</span><strong data-demo-text="strongSun">Strong sun</strong><p data-demo-text="updatedLive">Updated live</p><small data-demo-text="clearOverview">A clear view of current conditions</small></div>
-                <div class="demo-two-cards">
-                  <article><span>✓</span><small data-demo-text="status">Status</small><strong data-demo-text="onlineShort">Online</strong><b data-demo-text="allGood">All good</b></article>
-                  <article><span>⌁</span><small data-demo-text="connection">Connection</small><strong data-demo-text="stable">Stable</strong><b data-demo-text="connected">Connected</b></article>
-                </div>
-                <article class="demo-energy">
-                  <h4 data-demo-text="todayOverview">Today's overview</h4>
-                  <p><i class="orange"></i><span data-demo-text="solarActivity">Solar activity</span><b data-demo-text="high">High</b></p>
-                  <p><i class="blue"></i><span data-demo-text="sunnyPeriod">Sunny period</span><b>3 h 01 min</b></p>
-                </article>
-                <article class="demo-statistics">
-                  <h4>▣ <span data-demo-text="todayHighlights">Today's highlights</span></h4>
-                  <p><span data-demo-text="currentConditions">Current conditions</span><b data-demo-text="sunny">Sunny</b></p>
-                  <p><span data-demo-text="deviceStatus">Device status</span><b data-demo-text="onlineShort">Online</b></p>
-                  <p><span data-demo-text="lastUpdate">Last update</span><b data-demo-text="justNow">Just now</b></p>
-                </article>
-                <button class="demo-detail-button" type="button" data-demo-action="stats"><span data-demo-text="openDaily">Open daily overview</span> →</button>
-              </section>
-              <section class="demo-screen" data-demo-screen="devices">
-                <button class="demo-back" type="button" data-demo-action="dashboard">← <span data-demo-text="myDevices">My devices</span></button>
-                <h3 data-demo-text="selectDevice">Select a device</h3>
-                <p class="demo-muted" data-demo-text="selectDeviceHelp">Choose which SUNCRO device you want to view.</p>
-                <button class="demo-device-card selected" type="button" data-demo-action="dashboard"><span>▦</span><span><b>SUNCRO 1</b><small data-demo-text="primaryDevice">Primary device</small></span><i>✓</i></button>
-                <button class="demo-device-card" type="button" data-demo-action="offline"><span>▦</span><span><b>SUNCRO 2</b><small data-demo-text="secondDevice">Second device</small></span><i>•••</i></button>
-                <p class="demo-note" data-demo-note></p>
-              </section>
-              <section class="demo-screen" data-demo-screen="stats">
-                <button class="demo-back" type="button" data-demo-action="dashboard">← <span data-demo-text="dashboard">Dashboard</span></button>
-                <p class="demo-mini-label" data-demo-text="dailyOverview">DAILY OVERVIEW</p>
-                <h3 data-demo-text="yourDay">Your day at a glance.</h3>
-                <div class="demo-daily-score"><strong data-demo-text="activeDay">Active day</strong><span data-demo-text="overviewReady">overview ready</span></div>
-                <div class="demo-bars"><p><span data-demo-text="morning">Morning</span><i style="--bar:62%"></i><b>✓</b></p><p><span data-demo-text="midday">Midday</span><i style="--bar:88%"></i><b>✓</b></p><p><span data-demo-text="afternoon">Afternoon</span><i style="--bar:74%"></i><b>✓</b></p></div>
-                <p class="demo-daily-copy" data-demo-text="dailyCopy">A simple summary helps you understand how the day developed without technical details.</p>
-                <button class="demo-detail-button" type="button" data-demo-action="dashboard"><span data-demo-text="backLive">Back to live data</span> →</button>
-              </section>
-              <div class="demo-language-panel" hidden>
-                <p data-demo-text="chooseLanguage">Choose app language</p>
-                <div><button type="button" data-demo-lang="en">EN</button><button type="button" data-demo-lang="de">DE</button><button type="button" data-demo-lang="hr">HR</button><button type="button" data-demo-lang="fr">FR</button></div>
-              </div>
-            </div>
-          </div>
-          <div class="live-pill"><i></i><span data-demo-text="interactiveDemo">INTERACTIVE DEMO</span></div>
-        </div>
-        <div class="app-story">
-          <article class="app-point reveal">
-            <span class="app-point-number">01</span>
-            <div><h3>Current status at a glance</h3><p>See the conditions and device connection without technical clutter.</p></div>
-          </article>
-          <article class="app-point reveal">
-            <span class="app-point-number">02</span>
-            <div><h3>Your day in one overview</h3><p>A clear daily summary keeps the important information easy to understand.</p></div>
-          </article>
-          <div class="experience-card reveal">
-            <span class="experience-kicker">PRODUCT EXPERIENCE</span>
-            <strong>Clear. <em>Simple.</em></strong>
-            <p>Designed so the information you need is easy to find, on desktop or mobile.</p>
-            <div class="experience-track"><i></i></div>
-          </div>
-          <div class="app-languages reveal">
-            <span>Available in</span><b>EN</b><b>DE</b><b>HR</b><b>FR</b>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section process-section" id="process">
-      <div class="container process-heading reveal">
-        <p class="section-index process-index">03 — MADE FOR EVERYDAY USE</p>
-        <h2>Simple from day one.<br><span>Useful every day.</span></h2>
-        <p class="process-lead">SUNCRO keeps setup, daily checking and support clear from the first interaction.</p>
-      </div>
-      <div class="container process-grid">
-        <article class="process-step reveal"><span>01</span><div class="process-icon">◇</div><h3>Connect</h3><p>Add your SUNCRO device and get a clear confirmation when it is ready.</p><small>QUICK START</small></article>
-        <article class="process-step reveal"><span>02</span><div class="process-icon">⌁</div><h3>Check</h3><p>Open the app and see current conditions, device status and the daily overview.</p><small>AT A GLANCE</small></article>
-        <article class="process-step accent reveal"><span>03</span><div class="process-icon">◎</div><h3>Stay informed</h3><p>Keep the information close, with a multilingual interface and direct support.</p><small>WHEREVER YOU ARE</small></article>
-      </div>
-    </section>
-
-    <section class="section about-section" id="about">
-      <div class="container about-layout">
-        <div class="about-visual reveal"><img src="assets/img/suncro-symbol-orange.svg" alt="SUNCRO symbol"><i class="line line-a"></i><i class="line line-b"></i><i class="dot dot-a"></i><i class="dot dot-b"></i></div>
-        <div class="about-copy reveal">
-          <p class="section-index">04 — PEZIC TECH SOLUTIONS</p>
-          <h2>Small team.<br><span>Serious ambition.</span></h2>
-          <p>We are an independent technology company based in Germany, focused on turning strong ideas into products that solve real problems.</p>
-          <p>From early concept to product support, we stay close to the work—and even closer to our customers.</p>
-          <div class="stats"><div><strong>DE</strong><span>Based in Germany</span></div><div><strong>4×</strong><span>Interface languages</span></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section support-section" id="support">
-      <div class="container support-layout reveal">
-        <div><p class="section-index light">05 — SUPPORT</p><h2>We’re here after<br>the product arrives.</h2></div>
-        <div class="support-links">
-          <a href="#contact"><span><small>01</small> Product support</span><b>↗</b></a>
-          <a href="#contact"><span><small>02</small> Downloads & manuals</span><b>↗</b></a>
-          <a href="#contact"><span><small>03</small> Business enquiries</span><b>↗</b></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section contact-section" id="contact">
-      <div class="container contact-layout reveal">
-        <div class="contact-copy"><p class="section-index">06 — CONTACT</p><h2>Have a question<br>or an idea? <span>Let’s talk.</span></h2><p class="contact-note">Product questions, collaboration or technical support — write directly to the people building SUNCRO.</p><a class="contact-email" href="mailto:info@pezic-tech.com">info@pezic-tech.com <span>↗</span></a></div>
-        <a class="contact-circle" href="mailto:info@pezic-tech.com" aria-label="Email Pezic Tech Solutions"><span>START A<br>CONVERSATION</span><b>↗</b></a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-main">
-      <a class="brand footer-brand" href="#top"><img class="brand-symbol" src="assets/img/suncro-app-icon.svg" alt=""><span class="brand-copy"><strong>PEZIC TECH</strong><small>SOLUTIONS</small></span></a>
-      <div><strong>Explore</strong><a href="#suncro">SUNCRO</a><a href="#app">App demo</a><a href="#about">Company</a><a href="#support">Support</a></div>
-      <div><strong>Contact</strong><a href="mailto:info@pezic-tech.com">info@pezic-tech.com</a><span>Germany</span></div>
-      <div><strong>Legal</strong><a href="legal/impressum.html">Impressum</a><a href="legal/datenschutz.html">Datenschutz</a></div>
     </div>
-    <div class="container footer-bottom"><span>© <span id="year"></span> Pezic Tech Solutions</span><span>Engineered with purpose.</span></div>
+    <div class="wrap field-strip">
+      <span><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="10" height="10" rx="2"/><path d="M8 2v3m4-3v3m-4 10v3m4-3v3M2 8h3m-3 4h3m10-4h3m-3 4h3"/><rect x="8" y="8" width="4" height="4" rx=".5"/></svg>Elektronik</span><span><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="2.5"/><circle cx="4" cy="4" r="1.5"/><circle cx="16" cy="4" r="1.5"/><circle cx="10" cy="17" r="1.5"/><path d="m5 5 3 3m7-3-3 3m-2 5v2.5"/></svg>Vernetzte Geräte <small>IoT</small></span><span><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="15" height="12" rx="2"/><path d="m5 12 3-3 3 2 4-4"/></svg>Software</span>
+    </div>
+  </section>
+  <section class="section portfolio" id="products">
+    <div class="wrap">
+      <div class="section-heading">
+        <div><p class="eyebrow"><i></i>01 / Portfolio</p><h2>Unsere Produkte.</h2></div>
+        <p>Zwei Anwendungen, ein gemeinsamer Ansatz: Daten so aufbereiten, dass sie im Alltag weiterhelfen.</p>
+      </div>
+      <div class="product-grid">
+        <article class="product-card solar" id="suncro">
+            <a href="suncro/" aria-labelledby="link-suncro name-suncro">
+              <div class="product-art" aria-hidden="true"><div class="art-top"><span> / 01</span><img src="assets/img/suncro-symbol-orange.svg" alt="" width="35" height="35"></div><div class="product-graphic" aria-hidden="true">
+    <div class="graphic-caption"><span>Solarverlauf</span><span class="graphic-indicator"></span></div>
+    <svg viewBox="0 0 400 132" preserveAspectRatio="none">
+      <defs><linearGradient id="graphic-suncro" x2="0" y2="1" gradientUnits="objectBoundingBox">
+        <stop stop-color="#ff9c4c" stop-opacity=".33"/><stop offset="1" stop-color="#ff9c4c" stop-opacity=".04"/>
+      </linearGradient></defs>
+      <path d="M0 25h400M0 60h400M0 95h400M0 130h400" stroke="currentColor" opacity=".15"/>
+      <path d="M0 117c24 0 32-4 47-12s25-35 40-37c15-2 18 12 32 8s24-46 43-51c18-6 30 21 47 18 18-4 23-19 37-12 14 8 22 26 36 28s21-10 35-4 20 31 35 39 27 13 48 13V132H0Z" fill="url(#graphic-suncro)"/>
+       <path d="M0 117c24 0 32-4 47-12s25-35 40-37c15-2 18 12 32 8s24-46 43-51c18-6 30 21 47 18 18-4 23-19 37-12 14 8 22 26 36 28s21-10 35-4 20 31 35 39 27 13 48 13" fill="none" stroke="#ffb061" stroke-width="2"/>
+       <path d="M165 4v125" stroke="#ffb061" stroke-dasharray="3 5" opacity=".55"/><circle cx="165" cy="25" r="4" fill="#ffe2bc" stroke="#fba650" stroke-width="2"/>
+    </svg>
+    <div class="graphic-scale"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span></div>
+  </div></div>
+              <div class="product-copy"><p class="micro">Solarmonitoring</p><h3 id="name-suncro">SUNCRO</h3><p>SUNCRO zeigt aktuelle Sonnenbedingungen, den Tagesverlauf und den Gerätestatus in einer gemeinsamen Übersicht.</p><span class="product-link" id="link-suncro">Produkt ansehen <svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h11m-5-5 5 5-5 5"/></svg></span></div>
+            </a>
+          </article><article class="product-card thermal" id="heatcontrol">
+            <a href="heatcontrol/" aria-labelledby="link-heatcontrol name-heatcontrol">
+              <div class="product-art" aria-hidden="true"><div class="art-top"><span> / 02</span><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="15" height="12" rx="2"/><path d="m5 12 3-3 3 2 4-4"/></svg></div><div class="product-graphic" aria-hidden="true">
+    <div class="graphic-caption"><span>Heizdaten</span><span class="graphic-indicator"></span></div>
+    <svg viewBox="0 0 400 132" preserveAspectRatio="none">
+      <defs><linearGradient id="graphic-heatcontrol" x2="0" y2="1" gradientUnits="objectBoundingBox">
+        <stop stop-color="#ff9caf" stop-opacity=".96"/><stop offset="1" stop-color="#d6577d" stop-opacity=".04"/>
+      </linearGradient></defs>
+      <path d="M0 25h400M0 60h400M0 95h400M0 130h400" stroke="currentColor" opacity=".15"/>
+      <rect x="5" y="86" width="22" height="44" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.57"/><rect x="38" y="66" width="22" height="64" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.69"/><rect x="71" y="52" width="22" height="78" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.8099999999999999"/><rect x="104" y="66" width="22" height="64" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.57"/><rect x="137" y="42" width="22" height="88" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.69"/><rect x="170" y="20" width="22" height="110" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.8099999999999999"/><rect x="203" y="34" width="22" height="96" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.57"/><rect x="236" y="18" width="22" height="112" rx="3" fill="url(#graphic-heatcontrol)" opacity="1"/><rect x="269" y="39" width="22" height="91" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.8099999999999999"/><rect x="302" y="56" width="22" height="74" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.57"/><rect x="335" y="48" width="22" height="82" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.69"/><rect x="368" y="69" width="22" height="61" rx="3" fill="url(#graphic-heatcontrol)" opacity="0.8099999999999999"/>
+    </svg>
+    <div class="graphic-scale"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span></div>
+  </div></div>
+              <div class="product-copy"><p class="micro">Heizdaten &amp; Berichte</p><h3 id="name-heatcontrol">HEATCONTROL</h3><p>HEATCONTROL ist ein Webportal für Heizdaten in Mehrfamilienhäusern. Es bündelt Verbrauchsübersichten und Berichte.</p><span class="product-link" id="link-heatcontrol">Produkt ansehen <svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h11m-5-5 5 5-5 5"/></svg></span></div>
+            </a>
+          </article>
+      </div>
+      <span id="app" class="legacy-anchor"></span><span id="process" class="legacy-anchor"></span>
+    </div>
+  </section>
+  <section class="section engineering" id="engineering">
+    <div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow"><i></i>02 / Engineering</p><h2>Vom Signal zur Übersicht.</h2></div><p>Unsere Projekte verbinden Messung, Datenübertragung und Darstellung. Welche Technik wir einsetzen, hängt davon ab, welche Informationen die Anwendung braucht.</p></div>
+      <div class="engineering-grid"><article><div class="stage-number"><span>01</span><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="10" height="10" rx="2"/><path d="M8 2v3m4-3v3m-4 10v3m4-3v3M2 8h3m-3 4h3m10-4h3m-3 4h3"/><rect x="8" y="8" width="4" height="4" rx=".5"/></svg></div><h3>Elektronik</h3><p>Sensoren und eingebettete Systeme liefern die Messdaten.</p></article><article><div class="stage-number"><span>02</span><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="2.5"/><circle cx="4" cy="4" r="1.5"/><circle cx="16" cy="4" r="1.5"/><circle cx="10" cy="17" r="1.5"/><path d="m5 5 3 3m7-3-3 3m-2 5v2.5"/></svg></div><h3>Vernetzte Geräte</h3><p>Die Software macht Messwerte und Gerätestatus in der Anwendung sichtbar.</p></article><article><div class="stage-number"><span>03</span><svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="15" height="12" rx="2"/><path d="m5 12 3-3 3 2 4-4"/></svg></div><h3>Software</h3><p>Übersichten und Berichte helfen, Messwerte einzuordnen.</p></article></div>
+    </div>
+  </section>
+  <section class="section about" id="about">
+    <div class="wrap about-grid">
+      <p class="eyebrow"><i></i>03 / Über uns</p>
+      <div><h2>Pezic Tech Solutions</h2><p>Pezic Tech ist ein unabhängiges Technologieprojekt aus Deutschland. Hier entstehen eigene Anwendungen, die wir vom ersten Konzept bis zum Support begleiten.</p></div>
+    </div>
+  </section>
+  <div id="support" class="legacy-anchor"></div>
+  <section class="contact" id="contact">
+    <div class="wrap contact-inner">
+      <div><p class="eyebrow"><i></i>04 / Kontakt</p><h2>Was möchten Sie besprechen?</h2><p>Schreiben Sie uns für Produktfragen, technische Unterstützung oder eine Zusammenarbeit.</p></div>
+      <a class="button button-primary" href="mailto:info@pezic-tech.com">info@pezic-tech.com<svg class="icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15 15 5M6 5h9v9"/></svg></a>
+    </div>
+  </section></main>
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <a class="brand" href="./" aria-label="Pezic Tech Solutions · Startseite">
+    <span class="brand-icon" aria-hidden="true"><img src="assets/img/pezic-logo-color.png" alt="" width="1024" height="768"></span>
+    <span class="brand-type" aria-hidden="true"><strong>PEZIC TECH</strong><small>SOLUTIONS</small></span>
+  </a>
+        <div><p class="micro">Produkte</p><a href="suncro/">SUNCRO</a><a href="heatcontrol/">HEATCONTROL</a></div>
+        <div><p class="micro">Kontakt</p><a href="mailto:info@pezic-tech.com">info@pezic-tech.com</a><a href="#contact">Produktsupport</a></div>
+        <div><p class="micro">Rechtliches</p><a href="legal/impressum.html">Impressum</a><a href="legal/datenschutz.html">Datenschutz</a></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Pezic Tech Solutions</span><a href="#top" aria-label="Nach oben">↑</a></div>
+    </div>
   </footer>
 </body>
 </html>
