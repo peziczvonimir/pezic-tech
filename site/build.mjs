@@ -7,7 +7,8 @@ import { legalCopy, legalSources, operator } from './legal.mjs';
 const origin = 'https://pezic-tech.com/';
 const email = operator.email;
 const legal = ['legal/impressum.html', 'legal/datenschutz.html'];
-const sections = ['products', 'engineering', 'about', 'contact'];
+const sections = ['products', 'projects', 'engineering', 'about', 'contact'];
+const engineeringIcons = ['chip', 'screen', 'layers'];
 const pages = ['home', ...products.map(product => product.id), ...legal];
 const versionedAssets = ['css/pezic.css', 'js/site.js'];
 const assetVersions = new Map(await Promise.all(versionedAssets.map(async path => {
@@ -30,7 +31,8 @@ const icons = {
   external: '<path d="M5 15 15 5M6 5h9v9"/>',
   down: '<path d="M10 4v11m-5-5 5 5 5-5"/>',
   chip: '<rect x="5" y="5" width="10" height="10" rx="2"/><path d="M8 2v3m4-3v3m-4 10v3m4-3v3M2 8h3m-3 4h3m10-4h3m-3 4h3"/><rect x="8" y="8" width="4" height="4" rx=".5"/>',
-  network: '<circle cx="10" cy="10" r="2.5"/><circle cx="4" cy="4" r="1.5"/><circle cx="16" cy="4" r="1.5"/><circle cx="10" cy="17" r="1.5"/><path d="m5 5 3 3m7-3-3 3m-2 5v2.5"/>',
+  layers: '<path d="m10 3 7 4-7 4-7-4 7-4ZM3 10.5l7 4 7-4M3 14l7 4 7-4"/>',
+  check: '<path d="m4 10 4 4 8-8"/>',
   screen: '<rect x="2.5" y="4" width="15" height="12" rx="2"/><path d="m5 12 3-3 3 2 4-4"/>',
   globe: '<circle cx="10" cy="10" r="7"/><ellipse cx="10" cy="10" rx="3.2" ry="7"/><path d="M3 10h14"/>',
   menu: '<path d="M3 6h14M3 10h14M3 14h14"/>',
@@ -92,8 +94,8 @@ function productArt(product, label, sample) {
 }
 
 function signalStrip(t, asset) {
-  const fields = t.fields.map((field, index) =>
-    `<li>${icon(['chip', 'network', 'screen'][index])}${escape(field)}${index === 1 ? ' <small>IoT</small>' : ''}</li>`);
+  const fields = t.engineeringItems.map(([title], index) =>
+    `<li>${icon(engineeringIcons[index])}${escape(title)}</li>`);
   const brands = products.map(product => `<li>${productMark(product, asset)}${product.name}</li>`);
   const row = [...fields, ...brands].join('');
   return `<div class="signal-strip">
@@ -144,8 +146,8 @@ function shell(lang, page) {
     <div class="wrap">
       <div class="footer-grid">
         ${brand}
-        <div><p class="micro">${escape(t.nav[0])}</p>${products.map(product => `<a href="${route(lang, product.id)}">${product.name}</a>`).join('')}</div>
-        <div><p class="micro">${escape(t.nav[3])}</p><a href="mailto:${email}">${email}</a><a href="${section('contact')}">${escape(t.support)}</a></div>
+        <div><p class="micro">${escape(t.nav[0])}</p>${products.map(product => `<a href="${route(lang, product.id)}">${product.name}</a>`).join('')}<a href="${section('projects')}">${escape(t.nav[1])}</a></div>
+        <div><p class="micro">${escape(t.nav[4])}</p><a href="mailto:${email}">${email}</a></div>
         <div><p class="micro">${escape(t.legal)}</p>${legal.map((id, index) => `<a href="${route(lang, id)}">${escape(t.legalNames[index])}</a>`).join('')}</div>
       </div>
       <div class="footer-bottom"><span>© ${new Date().getUTCFullYear()} Pezic Tech Solutions</span><a href="#top" aria-label="${escape(t.top)}">↑</a></div>
@@ -163,6 +165,30 @@ function contact(t) {
   </section>`;
 }
 
+function featuredProject(t, asset) {
+  const p = t.project;
+  return `<section class="section projects" id="projects" aria-labelledby="project-title">
+    <div class="wrap project-grid">
+      <div class="project-copy">
+        <p class="eyebrow">${icon('layers')}${escape(t.nav[1])}</p>
+        <h2 id="project-title">${escape(p.title)}</h2>
+        <p>${escape(p.description)}</p>
+        <ul class="project-specs" role="list">${p.details.map(detail => `<li>${icon('check')}${escape(detail)}</li>`).join('')}</ul>
+      </div>
+      <div class="project-media">
+        <figure class="project-cad">
+          <img src="${asset('img/screw-organizer-cad.webp')}" alt="${escape(p.cadAlt)}" width="788" height="750" loading="lazy" decoding="async">
+          <figcaption>${escape(p.cad)}</figcaption>
+        </figure>
+        <figure class="project-photo">
+          <img src="${asset('img/screw-organizer-print.webp')}" alt="${escape(p.printAlt)}" width="1280" height="960" loading="lazy" decoding="async">
+          <figcaption>${escape(p.print)}</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>`;
+}
+
 function homepage(lang, context) {
   const { t, asset, route } = context;
   return `<section class="hero" id="home">
@@ -171,7 +197,7 @@ function homepage(lang, context) {
         <p class="eyebrow"><i></i>Pezic Tech Solutions</p>
         <h1><span class="hero-line">${escape(t.headline[0])}</span> <span class="hero-line hero-accent">${escape(t.headline[1])}</span></h1>
         <p class="hero-intro">${escape(t.intro)}</p>
-        <div class="actions">${button('#products', t.explore, 'primary', 'down')}${button('#contact', t.contact, 'outline')}</div>
+        <div class="actions">${button('#products', t.explore, 'primary', 'down')}${button('#projects', t.nav[1], 'outline', 'down')}</div>
       </div>
       <div class="board" aria-hidden="true">
         <img class="board-photo" src="${asset('img/pezic-circuit-1120.webp')}"
@@ -205,16 +231,17 @@ function homepage(lang, context) {
       <span id="app" class="legacy-anchor"></span><span id="process" class="legacy-anchor"></span>
     </div>
   </section>
+  ${featuredProject(t, asset)}
   <section class="section engineering" id="engineering">
     <div class="wrap">
       <div class="section-heading"><h2>${escape(t.engineeringTitle)}</h2></div>
       <div class="engineering-grid">${t.engineeringItems.map(([title, description], index) =>
-        `<article><div class="stage-icon">${icon(['chip', 'network', 'screen'][index])}</div><h3>${escape(title)}</h3><p>${escape(description)}</p></article>`).join('')}</div>
+        `<article><div class="stage-icon">${icon(engineeringIcons[index])}</div><h3>${escape(title)}</h3><p>${escape(description)}</p></article>`).join('')}</div>
     </div>
   </section>
   <section class="section about" id="about">
     <div class="wrap about-grid">
-      <h2>${escape(t.nav[2])}</h2><p>${escape(t.aboutText)}</p>
+      <h2>${escape(t.nav[3])}</h2><p>${escape(t.aboutText)}</p>
     </div>
   </section>
   <div id="support" class="legacy-anchor"></div>
@@ -291,7 +318,7 @@ function render(lang, page) {
   const description = product ? t[page].description : legalIndex === 0 ? legalCopy[lang].imprint : legalIndex === 1 ? legalCopy[lang].scope : t.intro;
   const title = product ? product.name + ' · Pezic Tech Solutions' : legalIndex >= 0
     ? t.legalNames[legalIndex] + ' · Pezic Tech Solutions'
-    : 'Pezic Tech Solutions · ' + t.fields.join(' / ');
+    : 'Pezic Tech Solutions · ' + t.engineeringItems.map(([title]) => title).join(' / ');
   const content = product ? productPage(lang, product, context) : legalIndex >= 0
     ? legalPage(lang, legalIndex, context)
     : homepage(lang, context);

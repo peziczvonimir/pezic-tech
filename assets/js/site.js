@@ -54,14 +54,14 @@ document.querySelectorAll('[data-language]').forEach(link => {
 
 if (document.body.dataset.page === 'home') {
   if ('IntersectionObserver' in window && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
-    const chartObserver = new IntersectionObserver((entries, observer) => {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
       for (const entry of entries) {
         if (!entry.isIntersecting) continue;
-        entry.target.classList.add('chart-entered');
+        entry.target.classList.add('entered');
         observer.unobserve(entry.target);
       }
     }, { threshold: .18 });
-    document.querySelectorAll('.product-card .product-graphic').forEach(chart => chartObserver.observe(chart));
+    document.querySelectorAll('.product-card .product-graphic, .project-media').forEach(item => revealObserver.observe(item));
   }
 
   const destinations = { '#suncro': 'suncro/', '#app': 'suncro/#app', '#process': 'suncro/', '#support': '#contact' };
