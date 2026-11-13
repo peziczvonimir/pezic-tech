@@ -176,13 +176,13 @@ function featuredProject(t, asset) {
         <ul class="project-specs" role="list">${p.details.map(detail => `<li>${icon('check')}${escape(detail)}</li>`).join('')}</ul>
       </div>
       <div class="project-media">
-        <figure class="project-cad">
-          <img src="${asset('img/screw-organizer-cad.webp')}" alt="${escape(p.cadAlt)}" width="788" height="750" loading="lazy" decoding="async">
-          <figcaption>${escape(p.cad)}</figcaption>
+        <figure class="project-open">
+          <img src="${asset('img/screw-organizer-open.jpg')}" alt="${escape(p.openAlt)}" width="1280" height="960" loading="lazy" decoding="async">
+          <figcaption>${escape(p.open)}</figcaption>
         </figure>
-        <figure class="project-photo">
-          <img src="${asset('img/screw-organizer-print.webp')}" alt="${escape(p.printAlt)}" width="1280" height="960" loading="lazy" decoding="async">
-          <figcaption>${escape(p.print)}</figcaption>
+        <figure class="project-stacked">
+          <img src="${asset('img/screw-organizer-stacked.jpg')}" alt="${escape(p.stackedAlt)}" width="1280" height="960" loading="lazy" decoding="async">
+          <figcaption>${escape(p.stacked)}</figcaption>
         </figure>
       </div>
     </div>
