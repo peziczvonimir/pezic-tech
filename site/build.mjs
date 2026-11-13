@@ -45,24 +45,21 @@ function button(href, label, style = 'primary', symbol = 'arrow') {
 }
 
 function board() {
-  return `<svg class="board-traces" aria-hidden="true" viewBox="0 0 640 540" fill="none">
-    <g stroke="#307a9f" stroke-opacity=".55">
-      <path d="M0 136h112l58 58h84m-254-85h120l49 49h85M0 376h117l54-54h82m-212 103h107l65-65h40m139-166h67l61-61h120m-248 25h45l61-61h88m-194 225h74l55 55h119m-247-17h49l56 56h94M296 180v-66l-42-42V0m89 180V97l45-45V0m-92 365v63l-49 49v63m96-175v82l37 37v56"/>
-      <path d="M0 246h130l20-20h104m-254 64h133l21 21h100m138-85h110l20-20h118m-248 105h116l22-22h110" stroke-dasharray="4 7"/>
-      <circle cx="41" cy="425" r="4"/><circle cx="587" cy="97" r="4"/><circle cx="592" cy="416" r="4"/>
-      <circle cx="130" cy="246" r="4"/><circle cx="502" cy="226" r="4"/><circle cx="247" cy="477" r="4"/><circle cx="388" cy="52" r="4"/>
+  return `<svg class="board-traces" aria-hidden="true" viewBox="0 0 640 600" preserveAspectRatio="none" fill="none">
+    <g stroke="#7ddfff" stroke-opacity=".38" vector-effect="non-scaling-stroke">
+      <path d="M0 128h100l48 48h86M640 406H536l-48-48h-69M376 0v64l-32 32v47M320 600v-71l32-32v-57"/>
+      <circle cx="234" cy="176" r="3"/><circle cx="419" cy="358" r="3"/><circle cx="344" cy="143" r="3"/><circle cx="352" cy="440" r="3"/>
     </g>
-    <path d="M0 376h117l54-54h82m139-128h67l61-61h120M343 365v82l37 37v56" stroke="#54d7ff" stroke-opacity=".68"/>
-    <g class="board-pulses" stroke="#b0eeff" stroke-width="2.5" stroke-linecap="round">
-      <path pathLength="100" d="M0 376h117l54-54h82"/>
-      <path pathLength="100" d="M392 194h67l61-61h120"/>
-      <path pathLength="100" d="M343 365v82l37 37v56"/>
+    <g class="board-pulses" stroke="#b7f4ff" stroke-width="2.3" stroke-linecap="round">
+      <path pathLength="100" d="M0 128h100l48 48h86"/>
+      <path pathLength="100" d="M640 406H536l-48-48h-69"/>
+      <path pathLength="100" d="M376 0v64l-32 32v47"/>
+      <path pathLength="100" d="M352 440v57l-32 32v71"/>
     </g>
-    <circle cx="117" cy="376" r="3" fill="#7ee4ff"/><circle cx="520" cy="133" r="3" fill="#7ee4ff"/><circle cx="343" cy="447" r="3" fill="#7ee4ff"/>
   </svg>`;
 }
 
-function graphic(product, label) {
+function graphic(product) {
   const solar = product.theme === 'solar';
   const fill = 'graphic-' + product.id;
   const drawing = solar
@@ -71,7 +68,6 @@ function graphic(product, label) {
        <path d="M165 4v125" stroke="#ffb061" stroke-dasharray="3 5" opacity=".55"/><circle cx="165" cy="25" r="4" fill="#ffe2bc" stroke="#fba650" stroke-width="2"/>`
     : [44, 64, 78, 64, 88, 110, 96, 112, 91, 74, 82, 61].map((height, index) => `<rect x="${index * 33 + 5}" y="${130 - height}" width="22" height="${height}" rx="3" fill="url(#${fill})" opacity="${index === 7 ? 1 : .57 + (index % 3) * .12}"/>`).join('');
   return `<div class="product-graphic" aria-hidden="true">
-    <div class="graphic-caption"><span>${escape(label)}</span><span class="graphic-indicator"></span></div>
     <svg viewBox="0 0 400 132" preserveAspectRatio="none">
       <defs><linearGradient id="${fill}" x2="0" y2="1" gradientUnits="objectBoundingBox">
         <stop stop-color="${solar ? '#ff9c4c' : '#c5ec80'}" stop-opacity="${solar ? '.33' : '.96'}"/><stop offset="1" stop-color="${solar ? '#ff9c4c' : '#7eab50'}" stop-opacity=".07"/>
@@ -79,7 +75,6 @@ function graphic(product, label) {
       <path d="M0 25h400M0 60h400M0 95h400M0 130h400" stroke="currentColor" opacity=".15"/>
       ${drawing}
     </svg>
-    <div class="graphic-scale"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span></div>
   </div>`;
 }
 
@@ -89,10 +84,10 @@ function productMark(product, asset) {
     : icon('screen');
 }
 
-function productArt(product, caption, label, asset) {
-  return `<div class="product-art" aria-hidden="true">
-    <div class="art-top"><div class="art-brand">${productMark(product, asset)}<span>${escape(caption)}</span></div><span class="art-index">/ ${product.number}</span></div>
-    ${graphic(product, label)}
+function productArt(product, label, sample) {
+  return `<div class="product-art">
+    <div class="art-caption"><span>${escape(label)}</span><span>${escape(sample)}</span></div>
+    ${graphic(product)}
   </div>`;
 }
 
@@ -103,7 +98,6 @@ function signalStrip(t, asset) {
   const row = [...fields, ...brands].join('');
   return `<div class="signal-strip">
     <div class="wrap signal-inner">
-      <span class="signal-index" aria-hidden="true">PZ / 01</span>
       <div class="signal-window"><div class="signal-track">
         <ul class="signal-group" role="list">${row}</ul>
         <ul class="signal-group signal-repeat" aria-hidden="true">${row}</ul>
@@ -163,7 +157,7 @@ function shell(lang, page) {
 function contact(t) {
   return `<section class="contact" id="contact">
     <div class="wrap contact-inner">
-      <div><p class="eyebrow"><i></i>${escape(t.contactTag)}</p><h2>${escape(t.contactTitle)}</h2><p>${escape(t.contactText)}</p></div>
+      <div><h2>${escape(t.contactTitle)}</h2><p>${escape(t.contactText)}</p></div>
       ${button('mailto:' + email, email, 'primary', 'external')}
     </div>
   </section>`;
@@ -174,34 +168,36 @@ function homepage(lang, context) {
   return `<section class="hero" id="home">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow"><i></i>${escape(t.eyebrow)}</p>
+        <p class="eyebrow"><i></i>Pezic Tech Solutions</p>
         <h1><span class="hero-line">${escape(t.headline[0])}</span> <span class="hero-line hero-accent">${escape(t.headline[1])}</span></h1>
         <p class="hero-intro">${escape(t.intro)}</p>
         <div class="actions">${button('#products', t.explore, 'primary', 'down')}${button('#contact', t.contact, 'outline')}</div>
       </div>
       <div class="board" aria-hidden="true">
+        <img class="board-photo" src="${asset('img/pezic-circuit-1120.webp')}"
+          srcset="${asset('img/pezic-circuit-640.webp')} 640w, ${asset('img/pezic-circuit-1120.webp')} 1120w"
+          sizes="(max-width: 720px) calc(100vw - 40px), (max-width: 1280px) 47vw, 610px"
+          width="1120" height="1400" fetchpriority="high" alt="">
         ${board()}
-        <div class="board-ring"></div>
-        <div class="board-chip"><span class="corner corner-tl"></span><span class="corner corner-br"></span><div class="hero-logo"><img src="${asset('img/pezic-logo-color.png')}" alt="" width="1024" height="768" fetchpriority="high"></div></div>
-        <span class="board-index">PZ.01 <b> / </b> PEZIC TECH SOLUTIONS</span>
-        <span class="board-cross">+</span>
+        <div class="hero-logo"><img src="${asset('img/pezic-logo-color.png')}" alt="" width="1024" height="768"></div>
       </div>
     </div>
     ${signalStrip(t, asset)}
   </section>
   <section class="section portfolio" id="products">
     <div class="wrap">
-      <div class="section-heading">
-        <div><p class="eyebrow"><i></i>${escape(t.portfolio)}</p><h2>${escape(t.productTitle)}</h2></div>
-        <p>${escape(t.productIntro)}</p>
-      </div>
+      <div class="section-heading"><h2>${escape(t.productTitle)}</h2></div>
       <div class="product-grid">
         ${products.map(product => {
           const p = t[product.id];
           return `<article class="product-card ${product.theme}" id="${product.id}">
             <a href="${route(lang, product.id)}" aria-labelledby="link-${product.id} name-${product.id}">
-              ${productArt(product, product.name, p.visual, asset)}
-              <div class="product-copy"><p class="micro">${escape(p.category)}</p><h3 id="name-${product.id}">${product.name}</h3><p>${escape(p.description)}</p><span class="product-link" id="link-${product.id}">${escape(t.productLink)} ${icon('arrow')}</span></div>
+              <div class="product-copy">
+                <div class="product-identity">${productMark(product, asset)}<div><p class="micro">${escape(p.category)}</p><h3 id="name-${product.id}">${product.name}</h3></div></div>
+                <p>${escape(p.description)}</p>
+                <span class="product-link" id="link-${product.id}">${escape(t.productLink)} ${icon('external')}</span>
+              </div>
+              ${productArt(product, p.visual, t.sample)}
             </a>
           </article>`;
         }).join('')}
@@ -211,15 +207,14 @@ function homepage(lang, context) {
   </section>
   <section class="section engineering" id="engineering">
     <div class="wrap">
-      <div class="section-heading"><div><p class="eyebrow"><i></i>${escape(t.engineering)}</p><h2>${escape(t.engineeringTitle)}</h2></div><p>${escape(t.engineeringIntro)}</p></div>
+      <div class="section-heading"><h2>${escape(t.engineeringTitle)}</h2></div>
       <div class="engineering-grid">${t.engineeringItems.map(([title, description], index) =>
-        `<article><div class="stage-number"><span>0${index + 1}</span>${icon(['chip', 'network', 'screen'][index])}</div><h3>${escape(title)}</h3><p>${escape(description)}</p></article>`).join('')}</div>
+        `<article><div class="stage-icon">${icon(['chip', 'network', 'screen'][index])}</div><h3>${escape(title)}</h3><p>${escape(description)}</p></article>`).join('')}</div>
     </div>
   </section>
   <section class="section about" id="about">
     <div class="wrap about-grid">
-      <p class="eyebrow"><i></i>${escape(t.about)}</p>
-      <div><h2>${escape(t.aboutTitle)}</h2><p>${escape(t.aboutText)}</p></div>
+      <h2>${escape(t.nav[2])}</h2><p>${escape(t.aboutText)}</p>
     </div>
   </section>
   <div id="support" class="legacy-anchor"></div>
@@ -230,7 +225,7 @@ function productPage(lang, product, context) {
   const { t, asset, route } = context;
   const p = t[product.id];
   const brand = product.logo
-    ? `<img class="product-logo" src="${asset('img/' + product.logo)}" alt="${product.name}">`
+    ? `<img class="product-logo" src="${asset('img/' + product.logo)}" alt="${product.name}" width="3000" height="900">`
     : `<span class="product-wordmark">${productMark(product, asset)}${product.name}</span>`;
   const demo = p.demoTabs
     ? `<div class="demo-panel">
@@ -246,16 +241,15 @@ function productPage(lang, product, context) {
     <div class="wrap">
       <div class="breadcrumb"><a href="${route(lang, 'home', '#products')}">${escape(t.nav[0])}</a><span aria-hidden="true">/</span><span>${product.name}</span></div>
       <div class="product-hero-grid">
-        <div><p class="eyebrow"><i></i>${escape(t.productLabel)} / ${product.number}</p>
-        ${brand}<h1>${escape(p.title)}</h1><p class="hero-intro">${escape(p.description)}</p>
+        <div>${brand}<h1>${escape(p.title)}</h1><p class="hero-intro">${escape(p.description)}</p>
         <div class="actions">${actions}</div></div>
-        ${productArt(product, p.category, p.visual, asset)}
+        ${productArt(product, p.visual, t.sample)}
       </div>
     </div>
   </section>
   <section class="section product-features ${product.theme}">
-    <div class="wrap"><div class="section-heading"><div><p class="eyebrow"><i></i>${product.name} / ${product.number}</p><h2>${escape(p.category)}.</h2></div></div>
-      <div class="feature-grid">${p.features.map(([title, description], index) => `<article><span class="micro">0${index + 1}</span><h3>${escape(title)}</h3><p>${escape(description)}</p></article>`).join('')}</div>
+    <div class="wrap"><div class="section-heading"><h2>${escape(p.category)}</h2></div>
+      <div class="feature-grid">${p.features.map(([title, description]) => `<article><h3>${escape(title)}</h3><p>${escape(description)}</p></article>`).join('')}</div>
     </div>
   </section>
   ${demo ? `<section class="section demo ${product.theme}" id="app">

@@ -53,6 +53,17 @@ document.querySelectorAll('[data-language]').forEach(link => {
 });
 
 if (document.body.dataset.page === 'home') {
+  if ('IntersectionObserver' in window && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const chartObserver = new IntersectionObserver((entries, observer) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add('chart-entered');
+        observer.unobserve(entry.target);
+      }
+    }, { threshold: .18 });
+    document.querySelectorAll('.product-card .product-graphic').forEach(chart => chartObserver.observe(chart));
+  }
+
   const destinations = { '#suncro': 'suncro/', '#app': 'suncro/#app', '#process': 'suncro/', '#support': '#contact' };
   const redirectLegacySection = () => {
     if (Object.hasOwn(destinations, location.hash)) location.replace(destinations[location.hash]);
