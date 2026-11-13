@@ -233,10 +233,10 @@ h2 { font-size: clamp(2.2rem, 4.3vw, 4.15rem); font-weight: 700; }
   border-top: 1px solid #345366;
   font: 600 .72rem/1.4 var(--mono);
 }
-.project-media .project-cad { margin-bottom: 20px; }
+.project-media .project-open { margin-bottom: 20px; }
 @media (prefers-reduced-motion: no-preference) {
-  .project-media.entered .project-cad { animation: project-in .65s cubic-bezier(.22,.7,.25,1) both; }
-  .project-media.entered .project-photo { animation: project-in .68s .12s cubic-bezier(.22,.7,.25,1) both; }
+  .project-media.entered .project-open { animation: project-in .65s cubic-bezier(.22,.7,.25,1) both; }
+  .project-media.entered .project-stacked { animation: project-in .68s .12s cubic-bezier(.22,.7,.25,1) both; }
 }
 @keyframes project-in { from { opacity: .4; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 .engineering-grid, .feature-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
