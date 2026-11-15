@@ -32,7 +32,7 @@ const icons = {
   down: '<path d="M10 4v11m-5-5 5 5 5-5"/>',
   chip: '<rect x="5" y="5" width="10" height="10" rx="2"/><path d="M8 2v3m4-3v3m-4 10v3m4-3v3M2 8h3m-3 4h3m10-4h3m-3 4h3"/><rect x="8" y="8" width="4" height="4" rx=".5"/>',
   layers: '<path d="m10 3 7 4-7 4-7-4 7-4ZM3 10.5l7 4 7-4M3 14l7 4 7-4"/>',
-  check: '<path d="m4 10 4 4 8-8"/>',
+  download: '<path d="M10 3v10m-4-4 4 4 4-4M4 14v3h12v-3"/>',
   screen: '<rect x="2.5" y="4" width="15" height="12" rx="2"/><path d="m5 12 3-3 3 2 4-4"/>',
   globe: '<circle cx="10" cy="10" r="7"/><ellipse cx="10" cy="10" rx="3.2" ry="7"/><path d="M3 10h14"/>',
   menu: '<path d="M3 6h14M3 10h14M3 14h14"/>',
@@ -165,25 +165,29 @@ function contact(t) {
   </section>`;
 }
 
-function featuredProject(t, asset) {
+function featuredProject(lang, t, asset) {
   const p = t.project;
+  const projectAsset = name => asset('projects/pz-04/PZ-04-' + name);
   return `<section class="section projects" id="projects" aria-labelledby="project-title">
     <div class="wrap project-grid">
       <div class="project-copy">
         <p class="eyebrow">${icon('layers')}${escape(t.nav[1])}</p>
         <h2 id="project-title">${escape(p.title)}</h2>
         <p>${escape(p.description)}</p>
-        <ul class="project-specs" role="list">${p.details.map(detail => `<li>${icon('check')}${escape(detail)}</li>`).join('')}</ul>
+        <div class="actions project-actions">
+          <button type="button" class="button button-primary" data-project-toggle aria-expanded="false" aria-controls="project-viewer" hidden>
+            <span data-open-label>${escape(p.open)}</span><span data-close-label hidden>${escape(p.close)}</span>${icon('down')}
+          </button>
+          <a class="button button-outline" href="${projectAsset('tehnicki-crtez.pdf')}" download>${escape(p.pdf)}${icon('download')}</a>
+        </div>
       </div>
-      <div class="project-media">
-        <figure class="project-open">
-          <img src="${asset('img/screw-organizer-open.jpg')}" alt="${escape(p.openAlt)}" width="1280" height="960" loading="lazy" decoding="async">
-          <figcaption>${escape(p.open)}</figcaption>
-        </figure>
-        <figure class="project-stacked">
-          <img src="${asset('img/screw-organizer-stacked.jpg')}" alt="${escape(p.stackedAlt)}" width="1280" height="960" loading="lazy" decoding="async">
-          <figcaption>${escape(p.stacked)}</figcaption>
-        </figure>
+      <figure class="project-media">
+        <img src="${projectAsset('rastavljeni-prikaz.png')}" alt="${escape(p.imageAlt)}" width="1600" height="1060" loading="lazy" decoding="async">
+      </figure>
+      <div class="project-viewer" id="project-viewer" role="region" aria-label="${escape(p.viewer)}" tabindex="-1" hidden>
+        <template>
+          <iframe src="${projectAsset('interaktivno.html')}?lang=${lang}&amp;embed=1" title="${escape(p.viewer)}" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe>
+        </template>
       </div>
     </div>
   </section>`;
@@ -231,7 +235,7 @@ function homepage(lang, context) {
       <span id="app" class="legacy-anchor"></span><span id="process" class="legacy-anchor"></span>
     </div>
   </section>
-  ${featuredProject(t, asset)}
+  ${featuredProject(lang, t, asset)}
   <section class="section engineering" id="engineering">
     <div class="wrap">
       <div class="section-heading"><h2>${escape(t.engineeringTitle)}</h2></div>
@@ -327,7 +331,7 @@ function render(lang, page) {
 <html lang="${lang}">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'${page === 'home' ? "; frame-src 'self'" : ''}">
   <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escape(title)}</title>

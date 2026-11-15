@@ -53,6 +53,25 @@ document.querySelectorAll('[data-language]').forEach(link => {
 });
 
 if (document.body.dataset.page === 'home') {
+  const projectToggle = document.querySelector('[data-project-toggle]');
+  const projectViewer = document.getElementById(projectToggle.getAttribute('aria-controls'));
+  const projectTemplate = projectViewer.querySelector('template');
+  const openLabel = projectToggle.querySelector('[data-open-label]');
+  const closeLabel = projectToggle.querySelector('[data-close-label]');
+  projectToggle.hidden = false;
+  projectToggle.addEventListener('click', () => {
+    const open = projectViewer.hidden;
+    projectToggle.setAttribute('aria-expanded', String(open));
+    openLabel.hidden = open;
+    closeLabel.hidden = !open;
+    projectViewer.hidden = !open;
+    if (open) {
+      if (!projectViewer.querySelector('iframe')) projectViewer.append(projectTemplate.content.cloneNode(true));
+      projectViewer.focus({ preventScroll: true });
+      projectViewer.scrollIntoView({ block: 'start' });
+    }
+  });
+
   if ('IntersectionObserver' in window && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
       for (const entry of entries) {
