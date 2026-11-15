@@ -168,6 +168,7 @@ function contact(t) {
 function featuredProject(lang, t, asset) {
   const p = t.project;
   const projectAsset = name => asset('projects/pz-04/PZ-04-' + name);
+  const localizedAsset = (name, extension) => projectAsset(name + (lang === 'hr' ? '' : '-' + lang) + '.' + extension);
   return `<section class="section projects" id="projects" aria-labelledby="project-title">
     <div class="wrap project-grid">
       <div class="project-copy">
@@ -178,11 +179,11 @@ function featuredProject(lang, t, asset) {
           <button type="button" class="button button-primary" data-project-toggle aria-expanded="false" aria-controls="project-viewer" hidden>
             <span data-open-label>${escape(p.open)}</span><span data-close-label hidden>${escape(p.close)}</span>${icon('down')}
           </button>
-          <a class="button button-outline" href="${projectAsset('tehnicki-crtez.pdf')}" download>${escape(p.pdf)}${icon('download')}</a>
+          <a class="button button-outline" href="${localizedAsset('tehnicki-crtez', 'pdf')}" download>${escape(p.pdf)}${icon('download')}</a>
         </div>
       </div>
       <figure class="project-media">
-        <img src="${projectAsset('rastavljeni-prikaz.png')}" alt="${escape(p.imageAlt)}" width="1600" height="1060" loading="lazy" decoding="async">
+        <img src="${localizedAsset('rastavljeni-prikaz', 'png')}" alt="${escape(p.imageAlt)}" width="1600" height="1060" loading="lazy" decoding="async">
       </figure>
       <div class="project-viewer" id="project-viewer" role="region" aria-label="${escape(p.viewer)}" tabindex="-1" hidden>
         <template>
