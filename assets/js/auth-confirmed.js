@@ -1,12 +1,12 @@
 const copy = {
-  hr: { title: 'E-mail je potvrđen', message: 'Vaš SUNCRO račun je aktiviran. Sada se možete prijaviti u aplikaciju.', openApp: 'Otvori SUNCRO aplikaciju', desktopNote: 'Ako ste potvrdu otvorili na računalu, vratite se na telefon i prijavite u SUNCRO aplikaciju.', errorTitle: 'Potvrda nije uspjela', errorMessage: 'Poveznica je istekla ili je već iskorištena. Pokušajte se prijaviti ili ponovno zatražite potvrdu.' },
+  hr: { title: 'Adresa e-pošte je potvrđena', message: 'Vaš je SUNCRO račun aktiviran. Sada se možete prijaviti u aplikaciju.', openApp: 'Otvori SUNCRO aplikaciju', desktopNote: 'Ako ste poveznicu otvorili na računalu, vratite se na telefon i prijavite se u aplikaciju SUNCRO.', errorTitle: 'Potvrda nije uspjela', errorMessage: 'Poveznica je istekla ili je već iskorištena. Pokušajte se prijaviti ili ponovno zatražite potvrdu.' },
   en: { title: 'Email confirmed', message: 'Your SUNCRO account is active. You can now sign in to the app.', openApp: 'Open the SUNCRO app', desktopNote: 'If you opened this confirmation on a computer, return to your phone and sign in to the SUNCRO app.', errorTitle: 'Confirmation failed', errorMessage: 'This link has expired or has already been used. Try signing in or request a new confirmation email.' },
   de: { title: 'E-Mail bestätigt', message: 'Ihr SUNCRO-Konto ist aktiviert. Sie können sich jetzt in der App anmelden.', openApp: 'SUNCRO-App öffnen', desktopNote: 'Wenn Sie die Bestätigung am Computer geöffnet haben, kehren Sie zum Smartphone zurück und melden Sie sich in der SUNCRO-App an.', errorTitle: 'Bestätigung fehlgeschlagen', errorMessage: 'Dieser Link ist abgelaufen oder wurde bereits verwendet. Melden Sie sich an oder fordern Sie eine neue Bestätigungs-E-Mail an.' },
   fr: {
     title: 'Adresse e-mail confirmée',
-    message: 'Votre compte SUNCRO est actif. Vous pouvez maintenant vous connecter dans l’application.',
+    message: 'Votre compte SUNCRO est actif. Vous pouvez maintenant vous connecter à l’application.',
     openApp: 'Ouvrir l’application SUNCRO',
-    desktopNote: 'Si vous avez ouvert la confirmation sur un ordinateur, revenez sur votre téléphone et connectez-vous dans l’application SUNCRO.',
+    desktopNote: 'Si vous avez ouvert la confirmation sur un ordinateur, revenez sur votre téléphone et connectez-vous à l’application SUNCRO.',
     errorTitle: 'Échec de la confirmation',
     errorMessage: 'Ce lien a expiré ou a déjà été utilisé. Essayez de vous connecter ou demandez un nouvel e-mail de confirmation.',
   },

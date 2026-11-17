@@ -10,7 +10,8 @@ const legal = ['legal/impressum.html', 'legal/datenschutz.html'];
 const sections = ['products', 'projects', 'engineering', 'about', 'contact'];
 const engineeringIcons = ['chip', 'screen', 'layers'];
 const pages = ['home', ...products.map(product => product.id), ...legal];
-const versionedAssets = ['css/pezic.css', 'js/site.js'];
+const pz04Asset = 'projects/pz-04/PZ-04-';
+const versionedAssets = ['css/pezic.css', 'js/site.js', pz04Asset + 'interaktivno.html'];
 const assetVersions = new Map(await Promise.all(versionedAssets.map(async path => {
   const contents = await readFile(new URL('../assets/' + path, import.meta.url), 'utf8');
   return [path, createHash('sha256').update(contents.replace(/\r\n/g, '\n')).digest('hex').slice(0, 12)];
@@ -167,7 +168,7 @@ function contact(t) {
 
 function featuredProject(lang, t, asset) {
   const p = t.project;
-  const projectAsset = name => asset('projects/pz-04/PZ-04-' + name);
+  const projectAsset = name => asset(pz04Asset + name);
   const localizedAsset = (name, extension) => projectAsset(name + (lang === 'hr' ? '' : '-' + lang) + '.' + extension);
   return `<section class="section projects" id="projects" aria-labelledby="project-title">
     <div class="wrap project-grid">
@@ -186,8 +187,9 @@ function featuredProject(lang, t, asset) {
         <img src="${localizedAsset('rastavljeni-prikaz', 'png')}" alt="${escape(p.imageAlt)}" width="1600" height="1060" loading="lazy" decoding="async">
       </figure>
       <div class="project-viewer" id="project-viewer" role="region" aria-label="${escape(p.viewer)}" tabindex="-1" hidden>
+        <div class="project-viewer-tools"><button type="button" class="button button-outline" data-project-close>${escape(p.close)}</button></div>
         <template>
-          <iframe src="${projectAsset('interaktivno.html')}?lang=${lang}&amp;embed=1" title="${escape(p.viewer)}" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe>
+          <iframe src="${projectAsset('interaktivno.html')}&amp;lang=${lang}&amp;embed=1" title="${escape(p.viewer)}" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe>
         </template>
       </div>
     </div>
@@ -274,7 +276,7 @@ function productPage(lang, product, context) {
       <div class="breadcrumb"><a href="${route(lang, 'home', '#products')}">${escape(t.nav[0])}</a><span aria-hidden="true">/</span><span>${product.name}</span></div>
       <div class="product-hero-grid">
         <div>${brand}<h1>${escape(p.title)}</h1><p class="hero-intro">${escape(p.description)}</p>
-        <div class="actions">${actions}</div></div>
+        <div class="actions">${actions}</div>${p.portalNote ? `<p class="portal-note">${escape(p.portalNote)}</p>` : ''}</div>
         ${productArt(product, p.visual, t.sample)}
       </div>
     </div>

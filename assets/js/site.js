@@ -11,14 +11,24 @@ function closeMenu() {
   navigation.classList.remove('is-open');
 }
 
-menu.addEventListener('click', () => {
+menu.addEventListener('click', event => {
   const open = navigation.classList.toggle('is-open');
   menu.setAttribute('aria-expanded', String(open));
   languages.open = false;
+  if (open && event.detail === 0) navigation.querySelector('a').focus();
 });
 
 navigation.addEventListener('click', event => {
-  if (event.target.closest('a')) closeMenu();
+  const link = event.target.closest('a');
+  if (!link) return;
+  const section = navigation.classList.contains('is-open') && link.getAttribute('href').startsWith('#')
+    ? document.getElementById(link.hash.slice(1))
+    : null;
+  closeMenu();
+  if (section) {
+    section.tabIndex = -1;
+    section.focus({ preventScroll: true });
+  }
 });
 
 languages.addEventListener('toggle', () => {
@@ -52,8 +62,8 @@ document.querySelectorAll('[data-language]').forEach(link => {
   window.addEventListener('hashchange', preserveSection);
 });
 
-if (document.body.dataset.page === 'home') {
-  const projectToggle = document.querySelector('[data-project-toggle]');
+const projectToggle = document.querySelector('[data-project-toggle]');
+if (projectToggle) {
   const projectViewer = document.getElementById(projectToggle.getAttribute('aria-controls'));
   const projectTemplate = projectViewer.querySelector('template');
   const openLabel = projectToggle.querySelector('[data-open-label]');
@@ -71,7 +81,13 @@ if (document.body.dataset.page === 'home') {
       projectViewer.scrollIntoView({ block: 'start' });
     }
   });
+  projectViewer.querySelector('[data-project-close]').addEventListener('click', () => {
+    projectToggle.click();
+    projectToggle.focus();
+  });
+}
 
+if (document.body.dataset.page === 'home') {
   if ('IntersectionObserver' in window && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
       for (const entry of entries) {

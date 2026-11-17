@@ -1,7 +1,7 @@
 const copy = {
-  hr: {loading:'Provjera poveznice…',title:'Postavite novu lozinku',message:'Nova lozinka mora imati najmanje 6 znakova.',password:'Nova lozinka',confirmPassword:'Ponovite novu lozinku',save:'Spremi novu lozinku',saving:'Spremanje…',mismatch:'Lozinke se ne podudaraju.',short:'Lozinka mora imati najmanje 6 znakova.',successTitle:'Lozinka je promijenjena',successMessage:'Sada se možete prijaviti novom lozinkom u SUNCRO aplikaciju.',openApp:'Otvori SUNCRO aplikaciju',errorTitle:'Poveznica nije valjana',errorMessage:'Poveznica je istekla ili je već iskorištena. U aplikaciji ponovno odaberite “Zaboravljena lozinka”.',saveError:'Lozinku nije moguće spremiti. Zatražite novu poveznicu.'},
+  hr: {loading:'Provjera poveznice…',title:'Postavite novu lozinku',message:'Nova lozinka mora imati najmanje 6 znakova.',password:'Nova lozinka',confirmPassword:'Ponovite novu lozinku',save:'Spremi novu lozinku',saving:'Spremanje…',mismatch:'Lozinke se ne podudaraju.',short:'Lozinka mora imati najmanje 6 znakova.',successTitle:'Lozinka je promijenjena',successMessage:'Sada se možete prijaviti u aplikaciju SUNCRO novom lozinkom.',openApp:'Otvori SUNCRO aplikaciju',errorTitle:'Poveznica nije valjana',errorMessage:'Poveznica je istekla ili je već iskorištena. U aplikaciji ponovno odaberite „Zaboravljena lozinka”.',saveError:'Lozinku nije moguće spremiti. Zatražite novu poveznicu.'},
   en: {loading:'Checking the link…',title:'Set a new password',message:'Your new password must contain at least 6 characters.',password:'New password',confirmPassword:'Repeat new password',save:'Save new password',saving:'Saving…',mismatch:'The passwords do not match.',short:'The password must contain at least 6 characters.',successTitle:'Password changed',successMessage:'You can now sign in to the SUNCRO app with your new password.',openApp:'Open the SUNCRO app',errorTitle:'Invalid link',errorMessage:'The link has expired or has already been used. Select “Forgot password” again in the app.',saveError:'The password could not be saved. Request a new link.'},
-  de: {loading:'Link wird geprüft…',title:'Neues Passwort festlegen',message:'Das neue Passwort muss mindestens 6 Zeichen enthalten.',password:'Neues Passwort',confirmPassword:'Neues Passwort wiederholen',save:'Neues Passwort speichern',saving:'Speichern…',mismatch:'Die Passwörter stimmen nicht überein.',short:'Das Passwort muss mindestens 6 Zeichen enthalten.',successTitle:'Passwort geändert',successMessage:'Du kannst dich jetzt mit deinem neuen Passwort in der SUNCRO-App anmelden.',openApp:'SUNCRO-App öffnen',errorTitle:'Ungültiger Link',errorMessage:'Der Link ist abgelaufen oder wurde bereits verwendet. Wähle in der App erneut „Passwort vergessen“.',saveError:'Das Passwort konnte nicht gespeichert werden. Fordere einen neuen Link an.'},
+  de: {loading:'Link wird geprüft…',title:'Neues Passwort festlegen',message:'Das neue Passwort muss mindestens 6 Zeichen enthalten.',password:'Neues Passwort',confirmPassword:'Neues Passwort wiederholen',save:'Neues Passwort speichern',saving:'Speichern…',mismatch:'Die Passwörter stimmen nicht überein.',short:'Das Passwort muss mindestens 6 Zeichen enthalten.',successTitle:'Passwort geändert',successMessage:'Sie können sich jetzt mit Ihrem neuen Passwort in der SUNCRO-App anmelden.',openApp:'SUNCRO-App öffnen',errorTitle:'Ungültiger Link',errorMessage:'Der Link ist abgelaufen oder wurde bereits verwendet. Wählen Sie in der App erneut „Passwort vergessen“.',saveError:'Das Passwort konnte nicht gespeichert werden. Fordern Sie einen neuen Link an.'},
   fr: {
     loading: 'Vérification du lien…',
     title: 'Choisissez un nouveau mot de passe',
@@ -13,7 +13,7 @@ const copy = {
     mismatch: 'Les mots de passe ne correspondent pas.',
     short: 'Le mot de passe doit contenir au moins 6 caractères.',
     successTitle: 'Mot de passe modifié',
-    successMessage: 'Vous pouvez maintenant vous connecter dans l’application SUNCRO avec votre nouveau mot de passe.',
+    successMessage: 'Vous pouvez maintenant vous connecter à l’application SUNCRO avec votre nouveau mot de passe.',
     openApp: 'Ouvrir l’application SUNCRO',
     errorTitle: 'Lien non valide',
     errorMessage: 'Ce lien a expiré ou a déjà été utilisé. Sélectionnez de nouveau « Mot de passe oublié » dans l’application.',
@@ -58,7 +58,8 @@ const recoveryStorage = {
 };
 const createRecoveryClient = () => supabase.createClient(
   'https://tmbmjtqmvpvrvbyqqiry.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRtYm1qdHFtdnB2cnZieXFxaXJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY0MDg4NTgsImV4cCI6MjEwMTk4NDg1OH0.Nc3zZzo9bmJ0aF4g4dBOrBq8oyeJtjXTaJMqfQox-zI',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRtYm1qdHFtdnB2cnZieXFxaXJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY0MDg4NTgsImV4cCI6MjEwMTk4NDg1OH0.Nc3zZzo9bmJ0aF4g4dBOrBq8oyeJtjXTaJMqfQox-zI'
+,
   { auth: { storage: recoveryStorage, detectSessionInUrl: false, autoRefreshToken: false } },
 );
 const loading = document.getElementById('loading');

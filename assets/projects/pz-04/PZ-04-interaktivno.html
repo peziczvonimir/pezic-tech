@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0a1522">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-BjpPy5sNRMWGrpSfhFZgWCoJ5jJVKFoHB4woOlhwecM='; style-src 'sha256-H2R4rZOhsMf27vtETH+KJTlzuoFvOiZ1+XG7Bq3XzXI='; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-uigfPQGjNeFU+xYjKb6vgayI5Zgz/0ll0Xa+d392taE='; style-src 'sha256-H2R4rZOhsMf27vtETH+KJTlzuoFvOiZ1+XG7Bq3XzXI='; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="no-referrer">
   <title>PZ-04 · Planetarni reduktor · Pezic Tech</title>
   <style>
@@ -83,7 +83,7 @@
       <div class="panel">
         <div>
           <h1 id="heading">Planetarni reduktor</h1>
-          <p class="description">Redukcija 4:1 za sporo zakretanje pozicijskog stola.</p>
+          <p class="description">Reduktor s prijenosnim omjerom 4:1 za polagano zakretanje malog pozicijskog stola.</p>
         </div>
         <div class="controls">
           <div class="progress-row"><label for="progress">Rastavljenost</label><output id="percentage" for="progress">100 %</output></div>
@@ -92,10 +92,10 @@
         </div>
       </div>
       <section class="stage" aria-label="Interaktivni model reduktora">
-        <canvas id="model" tabindex="0" aria-label="3D model. Povucite ili pritisnite strelice za zakretanje."></canvas>
+        <canvas id="model" tabindex="0" aria-label="3D model. Povucite model ili pritisnite tipke sa strelicama za zakretanje."></canvas>
         <p class="hint">Povucite za zakretanje</p>
-        <div class="view-tools"><button id="reset" type="button">Vrati pogled</button></div>
-        <p class="error" id="error" role="status" hidden>3D prikaz zahtijeva preglednik s WebGL 2 podrškom.</p>
+        <div class="view-tools"><button id="reset" type="button">Vrati početni prikaz</button></div>
+        <p class="error" id="error" role="status" hidden>Za 3D prikaz potreban je preglednik koji podržava WebGL 2.</p>
         <noscript><p class="error">Za interaktivni prikaz uključite JavaScript.</p></noscript>
       </section>
     </article>
@@ -121,23 +121,23 @@
         webgl: 'Die 3D-Ansicht benötigt einen Browser mit WebGL 2.', failed: 'Das 3D-Modell konnte nicht geladen werden.',
       },
       en: {
-        title: 'Planetary gearbox', description: 'A 4:1 reduction gearbox for slowly rotating a small positioning table.',
+        title: 'Planetary gearbox', description: 'A 4:1 gearbox designed to turn a small positioning table at low speed.',
         progress: 'Disassembly', assemble: 'Assemble', explode: 'Disassemble', reset: 'Reset view',
         stage: 'Interactive gearbox model', orbit: 'Drag to rotate', canvas: '3D model. Drag or press the arrow keys to rotate.',
         percent: value => value + ' percent disassembled',
         webgl: 'The 3D view requires a browser with WebGL 2.', failed: 'The 3D model could not be loaded.',
       },
       hr: {
-        title: 'Planetarni reduktor', description: 'Reduktor 4:1 za polagano zakretanje malog pozicijskog stola.',
-        progress: 'Rastavljenost', assemble: 'Sastavi sklop', explode: 'Rastavi sklop', reset: 'Vrati pogled',
-        stage: 'Interaktivni model reduktora', orbit: 'Povucite za zakretanje', canvas: '3D model. Povucite ili pritisnite strelice za zakretanje.',
+        title: 'Planetarni reduktor', description: 'Reduktor s prijenosnim omjerom 4:1 za polagano zakretanje malog pozicijskog stola.',
+        progress: 'Rastavljenost', assemble: 'Sastavi sklop', explode: 'Rastavi sklop', reset: 'Vrati početni prikaz',
+        stage: 'Interaktivni model reduktora', orbit: 'Povucite za zakretanje', canvas: '3D model. Povucite model ili pritisnite tipke sa strelicama za zakretanje.',
         percent: value => value + ' posto rastavljeno',
-        webgl: '3D prikaz zahtijeva preglednik s WebGL 2 podrškom.', failed: 'Model se nije uspio učitati.',
+        webgl: 'Za 3D prikaz potreban je preglednik koji podržava WebGL 2.', failed: '3D model nije moguće učitati.',
       },
       fr: {
-        title: 'Réducteur planétaire', description: 'Réducteur 4:1 conçu pour faire tourner lentement une petite table de positionnement.',
+        title: 'Réducteur planétaire', description: 'Réducteur de rapport 4:1 conçu pour faire tourner lentement une petite table de positionnement.',
         progress: 'Démontage', assemble: 'Assembler', explode: 'Démonter', reset: 'Réinitialiser la vue',
-        stage: 'Modèle interactif du réducteur', orbit: 'Faites glisser pour tourner', canvas: 'Modèle 3D. Faites glisser ou utilisez les flèches pour le faire tourner.',
+        stage: 'Modèle interactif du réducteur', orbit: 'Faites glisser pour faire pivoter le modèle', canvas: 'Modèle 3D. Faites glisser le modèle ou utilisez les touches fléchées pour le faire pivoter.',
         percent: value => value + ' pour cent démonté',
         webgl: 'La vue 3D nécessite un navigateur compatible avec WebGL 2.', failed: 'Le modèle 3D n’a pas pu être chargé.',
       },
