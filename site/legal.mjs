@@ -59,7 +59,7 @@ export const legalCopy = {
         'We use hosting to deliver and secure the website and diagnose problems. The legal basis is Article 6(1)(f) GDPR. Our legitimate interest is to keep the site available and secure. Each provider retains its hosting logs according to its security and deletion policies.',
       ], ['github', 'githubPrivacy', 'cloudflare']],
       ['Cookies and browser storage', [
-        'The public pages use no first-party cookies, analytics, advertising trackers or saved language preferences. The page address determines the language. The SUNCRO preview uses sample data and sends no inputs.',
+        'The public pages use no first-party cookies, analytics, advertising trackers or saved language preferences. The page address determines the language. The SUNCRO preview uses sample data and does not transmit user input.',
         'During password recovery, session data stays in the open page’s memory. If a verifier for a recovery code already exists in local browser storage, the page may read and remove it. This supports the requested service under section 25(2)(2) of the German TDDDG. A hosting provider may use essential security cookies, for example during a security check.',
       ]],
       ['SUNCRO account', [
@@ -83,14 +83,14 @@ export const legalCopy = {
     operator: 'Operater i kontakt',
     controller: 'Voditelj obrade',
     imprint: 'Pezic Tech Solutions privatni je tehnološki projekt. Na ovoj stranici predstavljamo projekt i njegove aplikacije.',
-    scope: 'Ova obavijest vrijedi za pezic-tech.com i go.pezic-tech.com, uključujući SUNCRO stranice za potvrdu e-pošte i obnovu lozinke. Povezani portal HEATCONTROL ima vlastitu obavijest o privatnosti.',
+    scope: 'Ova obavijest vrijedi za pezic-tech.com i go.pezic-tech.com, uključujući stranice SUNCRO-a za potvrdu adrese e-pošte i ponovno postavljanje lozinke. Povezani portal HEATCONTROL ima vlastitu obavijest o privatnosti.',
     sections: [
       ['Posluživanje stranice i zapisi poslužitelja', [
         'Stranicu pezic-tech.com poslužuje GitHub Pages, a go.pezic-tech.com poslužuje Cloudflare Pages. Pri posjetu pružatelji hostinga obrađuju IP adresu i tehničke podatke zahtjeva, primjerice vrijeme, traženu adresu i podatke o pregledniku. GitHub bilježi IP adrese radi sigurnosti.',
         'Ti se podaci koriste za isporuku stranice, siguran rad i otklanjanje poteškoća. Pravna osnova je čl. 6. st. 1. t. (f) GDPR-a. Naš je legitimni interes dostupnost i sigurnost stranice. Pružatelji čuvaju zapise prema svojim pravilima sigurnosti i brisanja.',
       ], ['github', 'githubPrivacy', 'cloudflare']],
       ['Kolačići i pohrana u pregledniku', [
-        'Javne stranice nemaju vlastite kolačiće, analitiku ni oglasno praćenje. Odabir jezika određuje adresa stranice i ne sprema se u preglednik. SUNCRO prikaz koristi primjere podataka i ništa ne šalje.',
+        'Javne stranice nemaju vlastite kolačiće, analitiku ni oglasno praćenje. Odabir jezika određuje adresa stranice i ne sprema se u preglednik. Ogledni prikaz SUNCRO-a koristi ogledne podatke i ne šalje korisničke unose.',
         'Tijekom obnove lozinke podaci sesije ostaju u memoriji otvorene stranice. Ako lokalna pohrana preglednika već sadrži verifikator koda za obnovu, stranica ga može pročitati i ukloniti. To služi zatraženoj funkciji prema § 25 st. 2. t. 2. njemačkog TDDDG-a. Pružatelj hostinga može koristiti nužne sigurnosne kolačiće, primjerice pri sigurnosnoj provjeri.',
       ]],
       ['SUNCRO račun', [
@@ -114,18 +114,18 @@ export const legalCopy = {
     operator: 'Éditeur du site et contact',
     controller: 'Responsable du traitement',
     imprint: 'Pezic Tech Solutions est un projet technologique géré à titre privé. Ce site présente le projet et ses applications.',
-    scope: 'Cette notice s’applique à pezic-tech.com et go.pezic-tech.com, y compris aux pages SUNCRO de confirmation d’adresse e-mail et de réinitialisation du mot de passe. Le portail HEATCONTROL dispose de sa propre notice de confidentialité.',
+    scope: 'Cette notice s’applique à pezic-tech.com et go.pezic-tech.com, y compris aux pages SUNCRO de confirmation d’adresse e-mail et de réinitialisation du mot de passe. Le portail HEATCONTROL dispose de sa propre politique de confidentialité.',
     sections: [
       ['Hébergement et journaux du serveur', [
-        'GitHub Pages héberge pezic-tech.com. Cloudflare Pages héberge go.pezic-tech.com. Lors d’une visite, les hébergeurs traitent l’adresse IP et les données techniques de la requête, par exemple l’heure, l’adresse demandée et les informations sur le navigateur. GitHub enregistre les adresses IP à des fins de sécurité.',
+        'GitHub Pages héberge pezic-tech.com. Cloudflare Pages héberge go.pezic-tech.com. Lors d’une visite, les hébergeurs traitent l’adresse IP et les données techniques de la requête, par exemple l’heure, l’URL demandée et les informations sur le navigateur. GitHub enregistre les adresses IP à des fins de sécurité.',
         'Ces données servent à fournir le site, à le sécuriser et à diagnostiquer les problèmes. La base juridique est l’article 6, paragraphe 1, point f) du RGPD. Notre intérêt légitime est de maintenir un site disponible et sûr. Les hébergeurs conservent leurs journaux selon leurs règles de sécurité et de suppression.',
       ], ['github', 'githubPrivacy', 'cloudflare']],
       ['Cookies et stockage dans le navigateur', [
-        'Les pages publiques n’utilisent ni cookies propres au site, ni mesure d’audience, ni suivi publicitaire. L’adresse de la page détermine la langue, sans enregistrer cette préférence dans le navigateur. L’aperçu SUNCRO utilise des exemples de données et ne transmet aucune saisie.',
+        'Les pages publiques n’utilisent ni cookies propres au site, ni mesure d’audience, ni suivi publicitaire. L’adresse de la page détermine la langue, sans enregistrer cette préférence dans le navigateur. L’aperçu SUNCRO utilise des données de démonstration et ne transmet aucune donnée saisie.',
         'Pendant la réinitialisation du mot de passe, les données de session restent en mémoire dans la page ouverte. Si un vérificateur du code de récupération existe déjà dans le stockage local du navigateur, la page peut le lire et le supprimer. Ce traitement sert à fournir la fonction demandée, conformément au § 25, alinéa 2, point 2 de la loi allemande TDDDG. L’hébergeur peut utiliser des cookies de sécurité nécessaires, par exemple lors d’une vérification.',
       ]],
       ['Compte SUNCRO', [
-        'La page de confirmation affiche l’état du lien envoyé par e-mail. Lors de la réinitialisation, Supabase Auth (Supabase Pte. Ltd.) traite le code ou les jetons de session ainsi que le nouveau mot de passe. Ces données servent à vérifier l’autorisation et à modifier le mot de passe. La base juridique est l’article 6, paragraphe 1, point b) du RGPD. Les liens de réinitialisation ont une durée de validité limitée. Nous traitons les données du compte pendant son utilisation et aussi longtemps que nécessaire pour remplir nos obligations légales ou défendre des droits.',
+        'La page de confirmation affiche l’état du lien envoyé par e-mail. Lors de la réinitialisation, Supabase Auth (Supabase Pte. Ltd.) traite le code ou les jetons de session ainsi que le nouveau mot de passe. Ces données servent à vérifier l’autorisation et à modifier le mot de passe. La base juridique est l’article 6, paragraphe 1, point b) du RGPD. Les liens de réinitialisation ont une durée de validité limitée. Nous traitons les données du compte pendant son utilisation et aussi longtemps que nécessaire pour remplir nos obligations légales ou faire valoir ou défendre des droits en justice.',
       ], ['supabase']],
       ['Contact par e-mail', [
         'Lorsque vous nous écrivez, nous traitons votre adresse e-mail, votre message et les informations que vous choisissez de nous communiquer pour vous répondre. Nous utilisons Google Workspace pour la messagerie. La base juridique est l’article 6, paragraphe 1, point b) du RGPD pour les demandes contractuelles ou précontractuelles, ou le point f) pour les autres échanges. Notre intérêt légitime est de traiter votre demande.',
