@@ -81,7 +81,7 @@ if (projectToggle) {
       projectViewer.scrollIntoView({ block: 'start' });
     }
   });
-  projectViewer.querySelector('[data-project-close]').addEventListener('click', () => {
+  projectViewer.querySelector('[data-project-close]')?.addEventListener('click', () => {
     projectToggle.click();
     projectToggle.focus();
   });

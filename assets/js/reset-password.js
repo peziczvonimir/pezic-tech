@@ -58,8 +58,7 @@ const recoveryStorage = {
 };
 const createRecoveryClient = () => supabase.createClient(
   'https://tmbmjtqmvpvrvbyqqiry.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRtYm1qdHFtdnB2cnZieXFxaXJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY0MDg4NTgsImV4cCI6MjEwMTk4NDg1OH0.Nc3zZzo9bmJ0aF4g4dBOrBq8oyeJtjXTaJMqfQox-zI'
-,
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRtYm1qdHFtdnB2cnZieXFxaXJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY0MDg4NTgsImV4cCI6MjEwMTk4NDg1OH0.Nc3zZzo9bmJ0aF4g4dBOrBq8oyeJtjXTaJMqfQox-zI',
   { auth: { storage: recoveryStorage, detectSessionInUrl: false, autoRefreshToken: false } },
 );
 const loading = document.getElementById('loading');
